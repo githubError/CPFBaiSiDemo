@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by cuipengfei on 16/6/13.
+//  Copyright © 2016年 崔鹏飞. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "CPFNavigationController.h"
+#import "CPFTabBarController.h"
+#import "CPFTabBar.h"
+#import "UIViewExt.h"
+#import "UIBarButtonItem+CPFEssence.h"
+#import "CPFEssenceController.h"
+#import "CPFNewController.h"
+#import "CPFFriendTrendsController.h"
+#import "CPFMeController.h"
+#import "CPFRecommendController.h"
+
+#ifdef DEBUG
+#define CPFLog(...) NSLog(__VA_ARGS__)
+#else
+#define CPFLog(...)
+#endif
+
+#define CPFLogFunc CPFLog(@"%s", __func__)
+
+#define CPFRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define CPFGlobalBg CPFRGBColor(223, 223, 223)
+
+#endif /* PrefixHeader_pch */
