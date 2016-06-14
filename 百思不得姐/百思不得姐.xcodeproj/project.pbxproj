@@ -139,17 +139,14 @@
 		D1EFC37D1D0F397A00F914FF /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
-				D1E3B9FB1D0F3EFF009FE89C /* Category */,
-				D1E3B9F51D0F3DFD009FE89C /* FriendTrends */,
-				D1E3B9F61D0F3DFD009FE89C /* Me */,
-				D1E3B9F71D0F3DFD009FE89C /* New */,
-				D1E3B9F41D0F3DBF009FE89C /* Essence */,
-				D1EFC3951D0F3A9600F914FF /* Other */,
 				D1EFC3811D0F397A00F914FF /* AppDelegate.h */,
 				D1EFC3821D0F397A00F914FF /* AppDelegate.m */,
-				D1EFC38A1D0F397A00F914FF /* Assets.xcassets */,
-				D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */,
-				D1EFC38F1D0F397A00F914FF /* Info.plist */,
+				D1E3B9F41D0F3DBF009FE89C /* Essence */,
+				D1E3B9F71D0F3DFD009FE89C /* New */,
+				D1E3B9F51D0F3DFD009FE89C /* FriendTrends */,
+				D1E3B9F61D0F3DFD009FE89C /* Me */,
+				D1EFC3951D0F3A9600F914FF /* Other */,
+				D1E3B9FB1D0F3EFF009FE89C /* Category */,
 				D1EFC37E1D0F397A00F914FF /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -158,6 +155,9 @@
 		D1EFC37E1D0F397A00F914FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1EFC38A1D0F397A00F914FF /* Assets.xcassets */,
+				D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */,
+				D1EFC38F1D0F397A00F914FF /* Info.plist */,
 				D1EFC37F1D0F397A00F914FF /* main.m */,
 				D1E3B9EA1D0F3C3B009FE89C /* PrefixHeader.pch */,
 			);
