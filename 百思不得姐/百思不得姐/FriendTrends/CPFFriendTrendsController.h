@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CPFFriendTrendsController : UIViewController
-- (IBAction)testClick:(id)sender;
 
 @end
