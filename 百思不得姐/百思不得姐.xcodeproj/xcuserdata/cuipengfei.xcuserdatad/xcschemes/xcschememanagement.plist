@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TodayExtenssion.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>百思不得姐.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>D116905F1D11B3C8006E0F70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D1EFC37A1D0F397A00F914FF</key>
 		<dict>
 			<key>primary</key>

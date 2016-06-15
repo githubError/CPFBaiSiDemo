@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6069FFBD65E968ED439F8B3A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268F0E0471BB58E335C96A44 /* libPods.a */; };
+		D11690621D11B3C9006E0F70 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11690611D11B3C9006E0F70 /* NotificationCenter.framework */; };
+		D11690661D11B3C9006E0F70 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11690651D11B3C9006E0F70 /* TodayViewController.m */; };
+		D11690691D11B3C9006E0F70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D11690671D11B3C9006E0F70 /* MainInterface.storyboard */; };
+		D116906D1D11B3C9006E0F70 /* TodayExtenssion.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D11690601D11B3C8006E0F70 /* TodayExtenssion.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */; };
 		D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EF1D0F3CF3009FE89C /* CPFTabBar.m */; };
 		D1E3B9F31D0F3D55009FE89C /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9F21D0F3D55009FE89C /* UIViewExt.m */; };
@@ -26,10 +30,40 @@
 		D1EFC3981D0F3AD900F914FF /* CPFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D116906B1D11B3C9006E0F70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1EFC3731D0F397A00F914FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D116905F1D11B3C8006E0F70;
+			remoteInfo = TodayExtenssion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D11690711D11B3C9006E0F70 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D116906D1D11B3C9006E0F70 /* TodayExtenssion.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D1C6E8BD19CFDD3C5ED2D26 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		268F0E0471BB58E335C96A44 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		633F88B7A4171B9011778F69 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D11690601D11B3C8006E0F70 /* TodayExtenssion.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtenssion.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D11690611D11B3C9006E0F70 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D11690641D11B3C9006E0F70 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		D11690651D11B3C9006E0F70 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		D11690681D11B3C9006E0F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D116906A1D11B3C9006E0F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1E3B9EA1D0F3C3B009FE89C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D1E3B9EB1D0F3C97009FE89C /* CPFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFNavigationController.h; sourceTree = "<group>"; };
 		D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFNavigationController.m; sourceTree = "<group>"; };
@@ -63,6 +97,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D116905D1D11B3C8006E0F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D11690621D11B3C9006E0F70 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1EFC3781D0F397A00F914FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,8 +129,20 @@
 			isa = PBXGroup;
 			children = (
 				268F0E0471BB58E335C96A44 /* libPods.a */,
+				D11690611D11B3C9006E0F70 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D11690631D11B3C9006E0F70 /* TodayExtenssion */ = {
+			isa = PBXGroup;
+			children = (
+				D11690641D11B3C9006E0F70 /* TodayViewController.h */,
+				D11690651D11B3C9006E0F70 /* TodayViewController.m */,
+				D11690671D11B3C9006E0F70 /* MainInterface.storyboard */,
+				D116906A1D11B3C9006E0F70 /* Info.plist */,
+			);
+			path = TodayExtenssion;
 			sourceTree = "<group>";
 		};
 		D1E3B9F41D0F3DBF009FE89C /* Essence */ = {
@@ -146,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EFC37D1D0F397A00F914FF /* 百思不得姐 */,
+				D11690631D11B3C9006E0F70 /* TodayExtenssion */,
 				D1EFC37C1D0F397A00F914FF /* Products */,
 				22FB55A81BBD4A298F4AF97B /* Pods */,
 				6CC91A4ABCD3E9F988630029 /* Frameworks */,
@@ -156,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EFC37B1D0F397A00F914FF /* 百思不得姐.app */,
+				D11690601D11B3C8006E0F70 /* TodayExtenssion.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +260,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D116905F1D11B3C8006E0F70 /* TodayExtenssion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D11690701D11B3C9006E0F70 /* Build configuration list for PBXNativeTarget "TodayExtenssion" */;
+			buildPhases = (
+				D116905C1D11B3C8006E0F70 /* Sources */,
+				D116905D1D11B3C8006E0F70 /* Frameworks */,
+				D116905E1D11B3C8006E0F70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayExtenssion;
+			productName = TodayExtenssion;
+			productReference = D11690601D11B3C8006E0F70 /* TodayExtenssion.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D1EFC37A1D0F397A00F914FF /* 百思不得姐 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1EFC3921D0F397A00F914FF /* Build configuration list for PBXNativeTarget "百思不得姐" */;
@@ -214,10 +287,12 @@
 				D1EFC3791D0F397A00F914FF /* Resources */,
 				675A811E1DA7357D557EE741 /* Embed Pods Frameworks */,
 				B26A46739E6EEBF3D92213D9 /* Copy Pods Resources */,
+				D11690711D11B3C9006E0F70 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D116906C1D11B3C9006E0F70 /* PBXTargetDependency */,
 			);
 			name = "百思不得姐";
 			productName = "百思不得姐";
@@ -234,6 +309,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "崔鹏飞";
 				TargetAttributes = {
+					D116905F1D11B3C8006E0F70 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 55DB8TVP4G;
+					};
 					D1EFC37A1D0F397A00F914FF = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 55DB8TVP4G;
@@ -254,11 +333,20 @@
 			projectRoot = "";
 			targets = (
 				D1EFC37A1D0F397A00F914FF /* 百思不得姐 */,
+				D116905F1D11B3C8006E0F70 /* TodayExtenssion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D116905E1D11B3C8006E0F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D11690691D11B3C9006E0F70 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1EFC3791D0F397A00F914FF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,6 +409,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D116905C1D11B3C8006E0F70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D11690661D11B3C9006E0F70 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1EFC3771D0F397A00F914FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,7 +438,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D116906C1D11B3C9006E0F70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D116905F1D11B3C8006E0F70 /* TodayExtenssion */;
+			targetProxy = D116906B1D11B3C9006E0F70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		D11690671D11B3C9006E0F70 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D11690681D11B3C9006E0F70 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -354,6 +466,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D116906E1D11B3C9006E0F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = TodayExtenssion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----.TodayExtenssion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D116906F1D11B3C9006E0F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = TodayExtenssion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----.TodayExtenssion";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		D1EFC3901D0F397A00F914FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -463,6 +601,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D11690701D11B3C9006E0F70 /* Build configuration list for PBXNativeTarget "TodayExtenssion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D116906E1D11B3C9006E0F70 /* Debug */,
+				D116906F1D11B3C9006E0F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D1EFC3761D0F397A00F914FF /* Build configuration list for PBXProject "百思不得姐" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
