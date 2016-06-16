@@ -19,6 +19,8 @@
 #import "CPFFriendTrendsController.h"
 #import "CPFMeController.h"
 #import "CPFRecommendController.h"
+#import "CPFRecommendCategoryCell.h"
+#import "CPFRecommendCategory.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

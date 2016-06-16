@@ -1,5 +1,5 @@
 platform:ios,'8.0'
 
 pod 'AFNetworking'
-pod 'SDWebImage'
-pod 'MBProgressHUD'
+pod 'MJExtension'
+pod 'SVProgressHUD'
