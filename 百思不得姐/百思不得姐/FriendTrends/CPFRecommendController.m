@@ -10,6 +10,9 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
+#import <MJRefresh.h>
+
+#define CPFSelectedCategory self.categories[[self.categoryTableView indexPathForSelectedRow].row]
 
 @interface CPFRecommendController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -29,21 +32,11 @@ static NSString * const userCellId = @"userCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"推荐关注";
+    // 设置tableView
+    [self setupTableView];
     
-    // 设置背景色
-    self.view.backgroundColor = CPFGlobalBg;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.categoryTableView.contentInset = UIEdgeInsetsMake(65, 0, 0, 0);
-    self.usersTableView.contentInset = self.categoryTableView.contentInset;
-    self.usersTableView.rowHeight = 60;
-    
-    // 注册categoryTableViewCell
-    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFRecommendCategoryCell class]) bundle:nil] forCellReuseIdentifier:categaryCellId];
-    
-    // 注册userTableViewCell
-    [self.usersTableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:userCellId];
+    // 设置刷新
+    [self setupRefresh];
     
     // 请求tableViewCategoryCell数据
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -61,16 +54,65 @@ static NSString * const userCellId = @"userCell";
     }];
 }
 
+
+- (void)setupTableView {
+    
+    self.title = @"推荐关注";
+    
+    // 设置背景色
+    self.view.backgroundColor = CPFGlobalBg;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(65, 0, 0, 0);
+    self.usersTableView.contentInset = self.categoryTableView.contentInset;
+    self.usersTableView.rowHeight = 60;
+    
+    // 注册categoryTableViewCell
+    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFRecommendCategoryCell class]) bundle:nil] forCellReuseIdentifier:categaryCellId];
+    
+    // 注册userTableViewCell
+    [self.usersTableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:userCellId];
+}
+
+// 设置刷新
+- (void)setupRefresh{
+    self.usersTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    self.usersTableView.mj_footer.hidden = YES;
+}
+
+
+#pragma mark - 加载更多用户数据
+- (void)loadMoreUsers {
+    
+    CPFRecommendCategory *category = CPFSelectedCategory;
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"a"] = @"list";
+    dict[@"c"] = @"subscribe";
+    dict[@"category_id"] = @(category.id);
+    dict[@"page"] = @"2";
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 缓存数据
+        [category.users addObjectsFromArray:users];
+        
+        self.usersTableView.mj_footer.hidden = YES;
+        [self.usersTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
 #pragma mark - <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (tableView == self.categoryTableView) {
         return self.categories.count;
     }else {
+        // 设置tableView的footer的显示/隐藏
+        self.usersTableView.mj_footer.hidden = ([CPFSelectedCategory users].count == 0);
         
-        CPFRecommendCategory *category = self.categories[[self.categoryTableView indexPathForSelectedRow].row];
-        
-        return category.users.count;
+        return [CPFSelectedCategory users].count;
     }
 }
 
@@ -83,9 +125,7 @@ static NSString * const userCellId = @"userCell";
         return cell;
     }else {
         CPFRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:userCellId forIndexPath:indexPath];
-        
-        CPFRecommendCategory *category = self.categories[[self.categoryTableView indexPathForSelectedRow].row];
-        cell.user = category.users[indexPath.row];
+        cell.user = [CPFSelectedCategory users][indexPath.row];
         return cell;
     }
 }
@@ -100,8 +140,7 @@ static NSString * const userCellId = @"userCell";
         if (category.users.count) {
             [self.usersTableView reloadData];
         }else {
-            CPFRecommendCategory *category = self.categories[indexPath.row];
-        
+            [self.usersTableView reloadData];
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
             dict[@"a"] = @"list";
             dict[@"c"] = @"subscribe";

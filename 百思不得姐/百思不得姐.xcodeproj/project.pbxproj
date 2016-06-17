@@ -188,12 +188,12 @@
 		D14AC9C21D1319D100BEB0F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1E3BA0A1D0F4769009FE89C /* CPFRecommendController.h */,
-				D1E3BA0B1D0F4769009FE89C /* CPFRecommendController.m */,
-				D1E3BA0C1D0F4769009FE89C /* CPFRecommendController.xib */,
 				D1E3BA051D0F41F1009FE89C /* CPFFriendTrendsController.h */,
 				D1E3BA061D0F41F1009FE89C /* CPFFriendTrendsController.m */,
 				D1E3BA071D0F41F1009FE89C /* CPFFriendTrendsController.xib */,
+				D1E3BA0A1D0F4769009FE89C /* CPFRecommendController.h */,
+				D1E3BA0B1D0F4769009FE89C /* CPFRecommendController.m */,
+				D1E3BA0C1D0F4769009FE89C /* CPFRecommendController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
