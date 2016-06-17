@@ -67,7 +67,10 @@ static NSString * const userCellId = @"userCell";
     if (tableView == self.categoryTableView) {
         return self.categories.count;
     }else {
-        return self.users.count;
+        
+        CPFRecommendCategory *category = self.categories[[self.categoryTableView indexPathForSelectedRow].row];
+        
+        return category.users.count;
     }
 }
 
@@ -80,7 +83,9 @@ static NSString * const userCellId = @"userCell";
         return cell;
     }else {
         CPFRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:userCellId forIndexPath:indexPath];
-        cell.user = self.users[indexPath.row];
+        
+        CPFRecommendCategory *category = self.categories[[self.categoryTableView indexPathForSelectedRow].row];
+        cell.user = category.users[indexPath.row];
         return cell;
     }
 }
@@ -90,15 +95,28 @@ static NSString * const userCellId = @"userCell";
     
     CPFRecommendCategory *category = self.categories[indexPath.row];
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"a"] = @"list";
-    dict[@"c"] = @"subscribe";
-    dict[@"category_id"] = @(category.id);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        [self.usersTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    if (tableView == self.categoryTableView) {
         
-    }];
+        if (category.users.count) {
+            [self.usersTableView reloadData];
+        }else {
+            CPFRecommendCategory *category = self.categories[indexPath.row];
+        
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            dict[@"a"] = @"list";
+            dict[@"c"] = @"subscribe";
+            dict[@"category_id"] = @(category.id);
+            [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+                // 缓存数据
+                [category.users addObjectsFromArray:users];
+                
+                [self.usersTableView reloadData];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+        }
+    }
+    
 }
 @end

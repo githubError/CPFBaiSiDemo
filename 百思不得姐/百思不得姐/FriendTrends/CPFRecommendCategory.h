@@ -16,4 +16,7 @@
 
 @property (nonatomic, copy) NSString *name;
 
+// 保存用户临时缓存数据
+@property (nonatomic, strong) NSMutableArray *users;
+
 @end
