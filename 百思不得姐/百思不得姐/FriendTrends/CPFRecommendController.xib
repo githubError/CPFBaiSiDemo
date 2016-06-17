@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CPFRecommendController">
             <connections>
                 <outlet property="categoryTableView" destination="Mbs-OV-PmL" id="8gV-mI-3jx"/>
+                <outlet property="usersTableView" destination="5L1-al-5FQ" id="Bok-d6-v1f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,13 +28,34 @@
                         <outlet property="delegate" destination="-1" id="11y-Dd-vkQ"/>
                     </connections>
                 </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5L1-al-5FQ">
+                    <rect key="frame" x="70" y="0.0" width="530" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="bg9-c1-oQA"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="bg9-c1-oQA"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Tfx-Gm-HYa"/>
+                        <outlet property="delegate" destination="-1" id="FkO-ie-0ry"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Mbs-OV-PmL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3ad-6l-YOJ"/>
+                <constraint firstAttribute="trailing" secondItem="5L1-al-5FQ" secondAttribute="trailing" id="64d-Vg-cDV"/>
                 <constraint firstItem="Mbs-OV-PmL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SMb-xb-dv3"/>
+                <constraint firstItem="5L1-al-5FQ" firstAttribute="leading" secondItem="Mbs-OV-PmL" secondAttribute="trailing" id="VOw-cU-4GQ"/>
+                <constraint firstItem="5L1-al-5FQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZEP-0h-k7P"/>
                 <constraint firstAttribute="bottom" secondItem="Mbs-OV-PmL" secondAttribute="bottom" id="m5o-uT-82G"/>
+                <constraint firstAttribute="bottom" secondItem="5L1-al-5FQ" secondAttribute="bottom" id="rMR-6a-zIb"/>
             </constraints>
+            <point key="canvasLocation" x="195" y="288"/>
         </view>
     </objects>
 </document>

@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) NSInteger count;
 
-@property (nonatomic, assign) NSInteger categoryId;
+@property (nonatomic, assign) NSInteger id;
 
 @property (nonatomic, copy) NSString *name;
 

@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = CPFRGBColor(244, 244, 244);
-    
+    self.selectedIndicator.backgroundColor = CPFRGBColor(219, 21, 26);
 }
 
 - (void)setCategory:(CPFRecommendCategory *)category {
@@ -39,7 +39,7 @@
     
     self.selectedIndicator.hidden = !selected;
     
-    self.textLabel.textColor = selected ? CPFRGBColor(219, 21, 26):CPFRGBColor(78, 78, 78);
+    self.textLabel.textColor = selected ? self.selectedIndicator.backgroundColor:CPFRGBColor(78, 78, 78);
 }
 
 @end
