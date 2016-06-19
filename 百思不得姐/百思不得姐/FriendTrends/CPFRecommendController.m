@@ -76,12 +76,43 @@ static NSString * const userCellId = @"userCell";
 
 // 设置刷新
 - (void)setupRefresh{
+    
+    self.usersTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    
     self.usersTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
     self.usersTableView.mj_footer.hidden = YES;
 }
 
 
-#pragma mark - 加载更多用户数据
+#pragma mark - 加载用户数据
+
+- (void)loadNewUsers {
+    
+    CPFRecommendCategory *category = CPFSelectedCategory;
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"a"] = @"list";
+    dict[@"c"] = @"subscribe";
+    dict[@"category_id"] = @(category.id);
+    dict[@"page"] = @(category.currentPage);
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        // 缓存数据
+        [category.users addObjectsFromArray:users];
+        
+        [self.usersTableView reloadData];
+        
+        [self.usersTableView.mj_header endRefreshing];
+        
+        category.total = [responseObject[@"total"] integerValue];
+        
+        [self checkFooterState];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 - (void)loadMoreUsers {
     
     CPFRecommendCategory *category = CPFSelectedCategory;
@@ -90,29 +121,46 @@ static NSString * const userCellId = @"userCell";
     dict[@"a"] = @"list";
     dict[@"c"] = @"subscribe";
     dict[@"category_id"] = @(category.id);
-    dict[@"page"] = @"2";
+    dict[@"page"] = @(++category.currentPage);
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 缓存数据
         [category.users addObjectsFromArray:users];
         
-        self.usersTableView.mj_footer.hidden = YES;
+       [self checkFooterState];
+        
         [self.usersTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
 }
+
+- (void)checkFooterState {
+    
+    CPFRecommendCategory *category = CPFSelectedCategory;
+    
+    if (category.users.count == category.total) {
+        [self.usersTableView.mj_footer endRefreshingWithNoMoreData];
+    }else {
+        [self.usersTableView.mj_footer endRefreshing];
+    }
+    
+    // 设置tableView的footer的显示/隐藏
+    self.usersTableView.mj_footer.hidden = (category.users.count == 0);
+}
+
 #pragma mark - <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (tableView == self.categoryTableView) {
         return self.categories.count;
     }else {
-        // 设置tableView的footer的显示/隐藏
-        self.usersTableView.mj_footer.hidden = ([CPFSelectedCategory users].count == 0);
+        CPFRecommendCategory *category = CPFSelectedCategory;
         
-        return [CPFSelectedCategory users].count;
+        [self checkFooterState];
+        
+        return category.users.count;
     }
 }
 
@@ -135,25 +183,16 @@ static NSString * const userCellId = @"userCell";
     
     CPFRecommendCategory *category = self.categories[indexPath.row];
     
+    category.currentPage = 1;
+    
     if (tableView == self.categoryTableView) {
         
         if (category.users.count) {
             [self.usersTableView reloadData];
         }else {
             [self.usersTableView reloadData];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            dict[@"a"] = @"list";
-            dict[@"c"] = @"subscribe";
-            dict[@"category_id"] = @(category.id);
-            [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-                // 缓存数据
-                [category.users addObjectsFromArray:users];
-                
-                [self.usersTableView reloadData];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
-            }];
+            
+            [self.usersTableView.mj_header beginRefreshing];
         }
     }
     

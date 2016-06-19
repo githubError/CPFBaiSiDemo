@@ -19,4 +19,8 @@
 // 保存用户临时缓存数据
 @property (nonatomic, strong) NSMutableArray *users;
 
+@property (nonatomic, assign) NSInteger total;
+
+@property (nonatomic, assign) NSInteger currentPage;
+
 @end
