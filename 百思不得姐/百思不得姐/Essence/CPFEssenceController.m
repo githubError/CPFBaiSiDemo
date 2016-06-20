@@ -30,7 +30,8 @@
 
 - (void)tagClick
 {
-    CPFLogFunc;
+    CPFRecommendTagsController *tagsCtr = [[CPFRecommendTagsController alloc] init];
+    [self.navigationController pushViewController:tagsCtr animated:YES];
 }
 
 @end

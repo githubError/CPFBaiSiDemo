@@ -23,6 +23,9 @@
 #import "CPFRecommendCategory.h"
 #import "CPFRecommendUserCell.h"
 #import "CPFRecommendUser.h"
+#import "CPFRecommendTagsController.h"
+#import "CPFRecommendTag.h"
+#import "CPFRecommendTagCell.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)
