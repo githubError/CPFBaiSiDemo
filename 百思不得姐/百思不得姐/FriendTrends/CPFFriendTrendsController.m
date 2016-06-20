@@ -28,6 +28,14 @@
     self.view.backgroundColor = CPFGlobalBg;
 }
 
+- (IBAction)loginRegister {
+    
+    CPFLoginRegisterController *loginRegisterCtr = [[CPFLoginRegisterController alloc] init];
+    
+    [self presentViewController:loginRegisterCtr animated:YES completion:nil];
+}
+
+
 - (void)friendsClick
 {
     CPFRecommendController *vc = [[CPFRecommendController alloc] init];
