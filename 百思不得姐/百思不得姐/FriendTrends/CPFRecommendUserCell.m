@@ -21,7 +21,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.backgroundColor = CPFRGBColor(244, 244, 244);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
