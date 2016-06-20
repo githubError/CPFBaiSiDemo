@@ -12,7 +12,7 @@
 #import <SVProgressHUD.h>
 #import <MJRefresh.h>
 
-#define CPFSelectedCategory self.categories[[self.categoryTableView indexPathForSelectedRow].row]
+#define CPFSelectedCategory self.categories[self.categoryTableView.indexPathForSelectedRow.row]
 
 @interface CPFRecommendController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -22,12 +22,23 @@
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet UITableView *usersTableView;
 
+@property (nonatomic, strong) NSMutableDictionary *dict;
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation CPFRecommendController
 
 static NSString * const categaryCellId = @"categaryCell";
 static NSString * const userCellId = @"userCell";
+
+- (AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,20 +49,8 @@ static NSString * const userCellId = @"userCell";
     // 设置刷新
     [self setupRefresh];
     
-    // 请求tableViewCategoryCell数据
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"a"] = @"category";
-    dict[@"c"] = @"subscribe";
-    [SVProgressHUD showWithStatus:@"正在加载"];
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.categories = [CPFRecommendCategory mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        [self.categoryTableView reloadData];
-        [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-        [SVProgressHUD dismiss];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"加载失败"];
-    }];
+    // 加载categroies
+    [self loadCategories];
 }
 
 
@@ -83,26 +82,61 @@ static NSString * const userCellId = @"userCell";
     self.usersTableView.mj_footer.hidden = YES;
 }
 
-
-#pragma mark - 加载用户数据
+#pragma mark - 加载数据
+// 加载categroies
+- (void)loadCategories{
+    // 请求tableViewCategoryCell数据
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"a"] = @"category";
+    dict[@"c"] = @"subscribe";
+    self.dict = dict;
+    
+    [SVProgressHUD showWithStatus:@"正在加载"];
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+        
+        self.categories = [CPFRecommendCategory mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [self.categoryTableView reloadData];
+        
+        [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        [self.usersTableView.mj_header beginRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+    }];
+    
+    
+}
 
 - (void)loadNewUsers {
     
     CPFRecommendCategory *category = CPFSelectedCategory;
+    category.currentPage = 1;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[@"a"] = @"list";
     dict[@"c"] = @"subscribe";
     dict[@"category_id"] = @(category.id);
     dict[@"page"] = @(category.currentPage);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    self.dict = dict;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        // 删除旧数据
+        [category.users removeAllObjects];
+        
         // 缓存数据
         [category.users addObjectsFromArray:users];
         
-        [self.usersTableView reloadData];
+        // 判断请求是否改变
+        if (self.dict != dict) return ;
         
         [self.usersTableView.mj_header endRefreshing];
+        
+        [self.usersTableView reloadData];
         
         category.total = [responseObject[@"total"] integerValue];
         
@@ -122,11 +156,17 @@ static NSString * const userCellId = @"userCell";
     dict[@"c"] = @"subscribe";
     dict[@"category_id"] = @(category.id);
     dict[@"page"] = @(++category.currentPage);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    self.dict = dict;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSArray *users = [CPFRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 缓存数据
         [category.users addObjectsFromArray:users];
+        
+        // 判断请求是否改变
+        if (self.dict != dict) return ;
         
        [self checkFooterState];
         
@@ -180,10 +220,11 @@ static NSString * const userCellId = @"userCell";
 
 #pragma mark - <UITableViewDelagate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 结束刷新
+    [self.usersTableView.mj_header endRefreshing];
+    [self.usersTableView.mj_footer endRefreshing];
     
     CPFRecommendCategory *category = self.categories[indexPath.row];
-    
-    category.currentPage = 1;
     
     if (tableView == self.categoryTableView) {
         
@@ -195,6 +236,12 @@ static NSString * const userCellId = @"userCell";
             [self.usersTableView.mj_header beginRefreshing];
         }
     }
+}
+
+#pragma mark - 控制器销毁
+- (void)dealloc {
     
+    // 停止所有网络请求
+    [self.manager.operationQueue cancelAllOperations];
 }
 @end
