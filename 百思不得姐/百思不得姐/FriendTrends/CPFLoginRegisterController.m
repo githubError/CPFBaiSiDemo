@@ -9,6 +9,7 @@
 #import "CPFLoginRegisterController.h"
 
 @interface CPFLoginRegisterController ()
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
 
 @end
 
@@ -17,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    attr[NSForegroundColorAttributeName] = [UIColor whiteColor];
     
+    self.phoneField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"手机号" attributes:attr];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
