@@ -42,7 +42,7 @@ static NSString * const CPFRecommendTagCellID = @"tag";
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         self.tags = [CPFRecommendTag mj_objectArrayWithKeyValuesArray:responseObject];
-        CPFLog(@"----%@",responseObject);
+        
         [self.tableView reloadData];
         
         [SVProgressHUD dismiss];
