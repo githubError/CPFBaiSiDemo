@@ -69,12 +69,9 @@
             <connections>
                 <outlet property="fansCountLabel" destination="Mf5-uz-KXb" id="qC4-ga-FHv"/>
                 <outlet property="headerImageView" destination="eEK-mO-F1a" id="X6G-Or-QqE"/>
-                <outlet property="imageLiatImageView" destination="eEK-mO-F1a" id="GN7-Vh-TG3"/>
                 <outlet property="screenNameLabel" destination="o8X-29-C2c" id="Jhq-s3-HQR"/>
-                <outlet property="subNumberLabel" destination="Mf5-uz-KXb" id="Ga1-8T-i4z"/>
-                <outlet property="themeNameLabel" destination="o8X-29-C2c" id="zPN-Nw-ut3"/>
             </connections>
-            <point key="canvasLocation" x="590" y="200.5"/>
+            <point key="canvasLocation" x="341" y="216.5"/>
         </tableViewCell>
     </objects>
     <resources>
