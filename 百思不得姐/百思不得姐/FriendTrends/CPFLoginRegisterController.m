@@ -18,10 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
-    attr[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    
-    self.phoneField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"手机号" attributes:attr];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
