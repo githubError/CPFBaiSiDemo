@@ -32,4 +32,5 @@
     [self setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     return [super resignFirstResponder];
 }
+
 @end
