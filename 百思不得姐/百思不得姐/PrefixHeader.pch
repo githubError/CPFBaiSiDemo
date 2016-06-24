@@ -27,6 +27,7 @@
 #import "CPFRecommendTag.h"
 #import "CPFRecommendTagCell.h"
 #import "CPFLoginRegisterController.h"
+#import "CPFPushGuideView.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

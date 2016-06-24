@@ -26,6 +26,9 @@
     
     // 显示窗口
     [self.window makeKeyAndVisible];
+    
+    [CPFPushGuideView show];
+    
     return YES;
 }
 

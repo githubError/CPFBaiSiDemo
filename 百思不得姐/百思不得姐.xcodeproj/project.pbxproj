@@ -26,6 +26,8 @@
 		D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44111D12DE9C002620D4 /* CPFRecommendCategoryCell.m */; };
 		D1CF44141D12DE9C002620D4 /* CPFRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CF44121D12DE9C002620D4 /* CPFRecommendCategoryCell.xib */; };
 		D1CF44171D12E3C6002620D4 /* CPFRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44161D12E3C6002620D4 /* CPFRecommendCategory.m */; };
+		D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */; };
+		D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */; };
 		D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */; };
 		D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EF1D0F3CF3009FE89C /* CPFTabBar.m */; };
 		D1E3B9F31D0F3D55009FE89C /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9F21D0F3D55009FE89C /* UIViewExt.m */; };
@@ -102,6 +104,9 @@
 		D1CF44121D12DE9C002620D4 /* CPFRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFRecommendCategoryCell.xib; sourceTree = "<group>"; };
 		D1CF44151D12E3C6002620D4 /* CPFRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendCategory.h; sourceTree = "<group>"; };
 		D1CF44161D12E3C6002620D4 /* CPFRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendCategory.m; sourceTree = "<group>"; };
+		D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPushGuideView.h; sourceTree = "<group>"; };
+		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; };
+		D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPushGuideView.xib; sourceTree = "<group>"; };
 		D1E3B9EA1D0F3C3B009FE89C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D1E3B9EB1D0F3C97009FE89C /* CPFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFNavigationController.h; sourceTree = "<group>"; };
 		D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFNavigationController.m; sourceTree = "<group>"; };
@@ -257,6 +262,29 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		D1DC9AD51D1D44D3009AC697 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1EFC3961D0F3AD900F914FF /* CPFTabBarController.h */,
+				D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */,
+				D1E3B9EB1D0F3C97009FE89C /* CPFNavigationController.h */,
+				D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D1DC9AD61D1D44E7009AC697 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1E3B9EE1D0F3CF3009FE89C /* CPFTabBar.h */,
+				D1E3B9EF1D0F3CF3009FE89C /* CPFTabBar.m */,
+				D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */,
+				D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */,
+				D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D1E3B9F41D0F3DBF009FE89C /* Essence */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,12 +385,8 @@
 		D1EFC3951D0F3A9600F914FF /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				D1EFC3961D0F3AD900F914FF /* CPFTabBarController.h */,
-				D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */,
-				D1E3B9EB1D0F3C97009FE89C /* CPFNavigationController.h */,
-				D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */,
-				D1E3B9EE1D0F3CF3009FE89C /* CPFTabBar.h */,
-				D1E3B9EF1D0F3CF3009FE89C /* CPFTabBar.m */,
+				D1DC9AD61D1D44E7009AC697 /* View */,
+				D1DC9AD51D1D44D3009AC697 /* Controller */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -468,6 +492,7 @@
 				D1E3BA0E1D0F4769009FE89C /* CPFRecommendController.xib in Resources */,
 				D17558501D18053400D83CAC /* CPFRecommendTagCell.xib in Resources */,
 				D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */,
+				D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */,
 				D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +565,7 @@
 				D17558541D185A4700D83CAC /* CPFLoginRegisterController.m in Sources */,
 				D1E3BA0D1D0F4769009FE89C /* CPFRecommendController.m in Sources */,
 				D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */,
+				D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */,
 				D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */,
 				D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */,
 				D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */,
