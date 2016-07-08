@@ -14,6 +14,8 @@
 
 @property (nonatomic, weak) UIButton *selectedBtn;
 
+@property (nonatomic, weak) UIView *titlesView;
+
 @end
 
 @implementation CPFEssenceController
@@ -22,9 +24,39 @@
 {
     [super viewDidLoad];
     
+    // 设置导航栏
     [self setupNavigation];
     
+    // 设置标签栏
     [self setupTitlesView];
+    
+    // 设置contentView
+    [self setupContentView];
+}
+
+// 设置contentView
+- (void)setupContentView {
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    UIScrollView *contentView = [[UIScrollView alloc] init];
+    contentView.frame = self.view.bounds;
+    contentView.backgroundColor = [UIColor purpleColor];
+    
+    // 设置contentView的内边距
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    
+    // 设置contentView内容区域
+    contentView.contentSize = CGSizeMake(0, 800);
+    
+    // 测试视图
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    view.backgroundColor = [UIColor redColor];
+    [contentView addSubview:view];
+    
+    [self.view insertSubview:contentView atIndex:0];
 }
 
 // 设置标签栏
@@ -73,7 +105,7 @@
         }
     }
     
-    
+    self.titlesView = titlesView;
     [self.view addSubview:titlesView];
 }
 
