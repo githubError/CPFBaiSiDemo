@@ -105,7 +105,7 @@
 		D1CF44151D12E3C6002620D4 /* CPFRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendCategory.h; sourceTree = "<group>"; };
 		D1CF44161D12E3C6002620D4 /* CPFRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendCategory.m; sourceTree = "<group>"; };
 		D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPushGuideView.h; sourceTree = "<group>"; };
-		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; };
+		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPushGuideView.xib; sourceTree = "<group>"; };
 		D1E3B9EA1D0F3C3B009FE89C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D1E3B9EB1D0F3C97009FE89C /* CPFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFNavigationController.h; sourceTree = "<group>"; };
