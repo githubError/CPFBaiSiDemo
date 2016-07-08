@@ -47,7 +47,7 @@
         
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont systemFontOfSize:15];
         
         [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,8 +67,8 @@
 
 // 标签点击
 - (void)titleClick:(UIButton *)button {
-    self.selectedBtn.selected = NO;
-    button.selected = YES;
+    self.selectedBtn.enabled = YES;
+    button.enabled = NO;
     self.selectedBtn = button;
     [UIView animateWithDuration:0.15 animations:^{
         self.indicatorView.width = button.titleLabel.width;
