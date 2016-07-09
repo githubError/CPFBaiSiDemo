@@ -8,13 +8,21 @@
 
 #import "CPFEssenceController.h"
 
-@interface CPFEssenceController ()
+#import "CPFAllViewController.h"
+#import "CPFPictureViewController.h"
+#import "CPFVoiceViewController.h"
+#import "CPFVideoViewController.h"
+#import "CPFWordViewController.h"
+
+@interface CPFEssenceController () <UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIView *indicatorView;
 
 @property (nonatomic, weak) UIButton *selectedBtn;
 
 @property (nonatomic, weak) UIView *titlesView;
+
+@property (nonatomic, weak) UIScrollView *contentView;
 
 @end
 
@@ -26,6 +34,9 @@
     
     // 设置导航栏
     [self setupNavigation];
+    
+    // 设置子控制器
+    [self setupChildVC];
     
     // 设置标签栏
     [self setupTitlesView];
@@ -41,22 +52,16 @@
     
     UIScrollView *contentView = [[UIScrollView alloc] init];
     contentView.frame = self.view.bounds;
-    contentView.backgroundColor = [UIColor purpleColor];
-    
-    // 设置contentView的内边距
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    
-    // 设置contentView内容区域
-    contentView.contentSize = CGSizeMake(0, 800);
-    
-    // 测试视图
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    view.backgroundColor = [UIColor redColor];
-    [contentView addSubview:view];
+    contentView.delegate = self;
+    contentView.pagingEnabled = YES;
     
     [self.view insertSubview:contentView atIndex:0];
+    
+    // 设置contentView内容区域
+    contentView.contentSize = CGSizeMake(contentView.width * self.childViewControllers.count, 0);
+    self.contentView = contentView;
+    
+    [self scrollViewDidEndScrollingAnimation:contentView];
 }
 
 // 设置标签栏
@@ -77,7 +82,6 @@
     indicatorView.height = 2;
     indicatorView.y = titlesView.height - indicatorView.height;
     indicatorView.backgroundColor = [UIColor redColor];
-    [titlesView addSubview:indicatorView];
     
     self.indicatorView = indicatorView;
     
@@ -86,7 +90,7 @@
         button.width = width;
         button.height = height;
         button.x = i * width;
-        
+        button.tag = i;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
@@ -106,7 +110,29 @@
     }
     
     self.titlesView = titlesView;
+    
+    [titlesView addSubview:indicatorView];
+    
     [self.view addSubview:titlesView];
+}
+
+// 设置子控制器
+- (void)setupChildVC {
+    
+    CPFAllViewController *all = [[CPFAllViewController alloc] init];
+    [self addChildViewController:all];
+    
+    CPFPictureViewController *picture = [[CPFPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    CPFVoiceViewController *voice = [[CPFVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
+    CPFVideoViewController *video = [[CPFVideoViewController alloc] init];
+    [self addChildViewController:video];
+    
+    CPFWordViewController *word = [[CPFWordViewController alloc] init];
+    [self addChildViewController:word];
 }
 
 // 标签点击
@@ -118,6 +144,11 @@
         self.indicatorView.width = button.titleLabel.width;
         self.indicatorView.centerX = button.centerX;
     }];
+    
+    // 滚动
+    CGPoint offSet = self.contentView.contentOffset;
+    offSet.x = button.tag * self.contentView.width;
+    [self.contentView setContentOffset:offSet animated:YES];
 }
 
 // 设置导航栏
@@ -136,6 +167,27 @@
 {
     CPFRecommendTagsController *tagsCtr = [[CPFRecommendTagsController alloc] init];
     [self.navigationController pushViewController:tagsCtr animated:YES];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    // 添加自控制器
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    UITableViewController *vc = self.childViewControllers[index];
+    vc.view.x = scrollView.contentOffset.x;
+    
+    // 设置contentView的内边距
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame) - 10;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    
+    [scrollView addSubview:vc.view];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    [self titleClick:self.titlesView.subviews[index]];
 }
 
 @end

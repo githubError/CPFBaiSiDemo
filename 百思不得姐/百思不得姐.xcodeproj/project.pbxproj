@@ -13,6 +13,11 @@
 		D11690691D11B3C9006E0F70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D11690671D11B3C9006E0F70 /* MainInterface.storyboard */; };
 		D116906D1D11B3C9006E0F70 /* TodayExtenssion.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D11690601D11B3C8006E0F70 /* TodayExtenssion.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D11F7E7F1D1933F50020FA9A /* CPFColorfulPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F7E7E1D1933F50020FA9A /* CPFColorfulPlaceholder.m */; };
+		D13C613A1D31007F003B7EB8 /* CPFAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13C61391D31007F003B7EB8 /* CPFAllViewController.m */; };
+		D13C613D1D31009B003B7EB8 /* CPFPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13C613C1D31009B003B7EB8 /* CPFPictureViewController.m */; };
+		D13C61401D3100AA003B7EB8 /* CPFVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13C613F1D3100AA003B7EB8 /* CPFVoiceViewController.m */; };
+		D13C61431D3100D5003B7EB8 /* CPFVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13C61421D3100D5003B7EB8 /* CPFVideoViewController.m */; };
+		D13C61461D3100E9003B7EB8 /* CPFWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13C61451D3100E9003B7EB8 /* CPFWordViewController.m */; };
 		D14AC9C61D131AEA00BEB0F9 /* CPFRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C41D131AEA00BEB0F9 /* CPFRecommendUserCell.m */; };
 		D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */; };
 		D14AC9CA1D131ED400BEB0F9 /* CPFRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */; };
@@ -82,6 +87,16 @@
 		D116906A1D11B3C9006E0F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D11F7E7D1D1933F50020FA9A /* CPFColorfulPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFColorfulPlaceholder.h; sourceTree = "<group>"; };
 		D11F7E7E1D1933F50020FA9A /* CPFColorfulPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFColorfulPlaceholder.m; sourceTree = "<group>"; };
+		D13C61381D31007F003B7EB8 /* CPFAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFAllViewController.h; sourceTree = "<group>"; };
+		D13C61391D31007F003B7EB8 /* CPFAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFAllViewController.m; sourceTree = "<group>"; };
+		D13C613B1D31009B003B7EB8 /* CPFPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPictureViewController.h; sourceTree = "<group>"; };
+		D13C613C1D31009B003B7EB8 /* CPFPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPictureViewController.m; sourceTree = "<group>"; };
+		D13C613E1D3100AA003B7EB8 /* CPFVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFVoiceViewController.h; sourceTree = "<group>"; };
+		D13C613F1D3100AA003B7EB8 /* CPFVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFVoiceViewController.m; sourceTree = "<group>"; };
+		D13C61411D3100D5003B7EB8 /* CPFVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFVideoViewController.h; sourceTree = "<group>"; };
+		D13C61421D3100D5003B7EB8 /* CPFVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFVideoViewController.m; sourceTree = "<group>"; };
+		D13C61441D3100E9003B7EB8 /* CPFWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFWordViewController.h; sourceTree = "<group>"; };
+		D13C61451D3100E9003B7EB8 /* CPFWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFWordViewController.m; sourceTree = "<group>"; };
 		D14AC9C31D131AEA00BEB0F9 /* CPFRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendUserCell.h; sourceTree = "<group>"; };
 		D14AC9C41D131AEA00BEB0F9 /* CPFRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendUserCell.m; sourceTree = "<group>"; };
 		D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFRecommendUserCell.xib; sourceTree = "<group>"; };
@@ -239,6 +254,16 @@
 				D1E3B9F91D0F3E32009FE89C /* CPFEssenceController.m */,
 				D17558461D18008600D83CAC /* CPFRecommendTagsController.h */,
 				D17558471D18008600D83CAC /* CPFRecommendTagsController.m */,
+				D13C61381D31007F003B7EB8 /* CPFAllViewController.h */,
+				D13C61391D31007F003B7EB8 /* CPFAllViewController.m */,
+				D13C613B1D31009B003B7EB8 /* CPFPictureViewController.h */,
+				D13C613C1D31009B003B7EB8 /* CPFPictureViewController.m */,
+				D13C613E1D3100AA003B7EB8 /* CPFVoiceViewController.h */,
+				D13C613F1D3100AA003B7EB8 /* CPFVoiceViewController.m */,
+				D13C61411D3100D5003B7EB8 /* CPFVideoViewController.h */,
+				D13C61421D3100D5003B7EB8 /* CPFVideoViewController.m */,
+				D13C61441D3100E9003B7EB8 /* CPFWordViewController.h */,
+				D13C61451D3100E9003B7EB8 /* CPFWordViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -562,13 +587,18 @@
 			files = (
 				D1E3BA041D0F417A009FE89C /* CPFNewController.m in Sources */,
 				D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */,
+				D13C61461D3100E9003B7EB8 /* CPFWordViewController.m in Sources */,
+				D13C61431D3100D5003B7EB8 /* CPFVideoViewController.m in Sources */,
+				D13C613A1D31007F003B7EB8 /* CPFAllViewController.m in Sources */,
 				D17558541D185A4700D83CAC /* CPFLoginRegisterController.m in Sources */,
 				D1E3BA0D1D0F4769009FE89C /* CPFRecommendController.m in Sources */,
 				D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */,
 				D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */,
 				D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */,
 				D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */,
+				D13C61401D3100AA003B7EB8 /* CPFVoiceViewController.m in Sources */,
 				D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */,
+				D13C613D1D31009B003B7EB8 /* CPFPictureViewController.m in Sources */,
 				D1EFC3801D0F397A00F914FF /* main.m in Sources */,
 				D175584F1D18053400D83CAC /* CPFRecommendTagCell.m in Sources */,
 				D1E3B9FA1D0F3E32009FE89C /* CPFEssenceController.m in Sources */,
