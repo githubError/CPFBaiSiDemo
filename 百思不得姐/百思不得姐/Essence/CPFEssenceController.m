@@ -176,9 +176,12 @@
     vc.view.x = scrollView.contentOffset.x;
     
     // 设置contentView的内边距
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame) - 10;
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame) - 20;
     CGFloat bottom = self.tabBarController.tabBar.height;
     vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    
+    // 设置滚动条内边距
+    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     
     [scrollView addSubview:vc.view];
 }

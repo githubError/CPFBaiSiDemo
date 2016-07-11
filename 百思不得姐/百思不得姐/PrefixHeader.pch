@@ -28,6 +28,11 @@
 #import "CPFRecommendTagCell.h"
 #import "CPFLoginRegisterController.h"
 #import "CPFPushGuideView.h"
+#import "CPFTopic.h"
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

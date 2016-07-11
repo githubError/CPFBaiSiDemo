@@ -21,6 +21,7 @@
 		D14AC9C61D131AEA00BEB0F9 /* CPFRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C41D131AEA00BEB0F9 /* CPFRecommendUserCell.m */; };
 		D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */; };
 		D14AC9CA1D131ED400BEB0F9 /* CPFRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */; };
+		D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = D169D4AE1D33A6710095FDCA /* CPFTopic.m */; };
 		D17558481D18008600D83CAC /* CPFRecommendTagsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17558471D18008600D83CAC /* CPFRecommendTagsController.m */; };
 		D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D175584A1D18030A00D83CAC /* CPFRecommendTag.m */; };
 		D175584F1D18053400D83CAC /* CPFRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D175584D1D18053400D83CAC /* CPFRecommendTagCell.m */; };
@@ -102,6 +103,8 @@
 		D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFRecommendUserCell.xib; sourceTree = "<group>"; };
 		D14AC9C81D131ED400BEB0F9 /* CPFRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendUser.h; sourceTree = "<group>"; };
 		D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendUser.m; sourceTree = "<group>"; };
+		D169D4AD1D33A6710095FDCA /* CPFTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopic.h; sourceTree = "<group>"; };
+		D169D4AE1D33A6710095FDCA /* CPFTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopic.m; sourceTree = "<group>"; };
 		D17558461D18008600D83CAC /* CPFRecommendTagsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendTagsController.h; sourceTree = "<group>"; };
 		D17558471D18008600D83CAC /* CPFRecommendTagsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendTagsController.m; sourceTree = "<group>"; };
 		D17558491D18030A00D83CAC /* CPFRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendTag.h; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 			children = (
 				D17558491D18030A00D83CAC /* CPFRecommendTag.h */,
 				D175584A1D18030A00D83CAC /* CPFRecommendTag.m */,
+				D169D4AD1D33A6710095FDCA /* CPFTopic.h */,
+				D169D4AE1D33A6710095FDCA /* CPFTopic.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -586,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E3BA041D0F417A009FE89C /* CPFNewController.m in Sources */,
+				D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */,
 				D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */,
 				D13C61461D3100E9003B7EB8 /* CPFWordViewController.m in Sources */,
 				D13C61431D3100D5003B7EB8 /* CPFVideoViewController.m in Sources */,
@@ -651,7 +657,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = TodayExtenssion/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----.TodayExtenssion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,7 +670,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = TodayExtenssion/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----.TodayExtenssion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
