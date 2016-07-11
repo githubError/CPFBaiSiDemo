@@ -22,14 +22,14 @@
                             <constraint firstAttribute="width" constant="35" id="j5h-zR-rN5"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dou-MT-GjA" userLabel="昵称">
-                        <rect key="frame" x="56" y="16" width="38" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dou-MT-GjA" userLabel="昵称">
+                        <rect key="frame" x="56" y="16" width="30" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xR3-2y-1gC" userLabel="时间">
-                        <rect key="frame" x="56" y="35" width="33" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xR3-2y-1gC" userLabel="时间">
+                        <rect key="frame" x="56" y="35" width="26" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -61,15 +61,6 @@
                                 </state>
                                 <state key="highlighted" image="mainCellDingClick"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-W2-hs5" userLabel="踩">
-                                <rect key="frame" x="84" y="0.0" width="76" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="3" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="踩" image="mainCellCai">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="mainCellCaiClick"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNX-yA-XD3" userLabel="评论">
                                 <rect key="frame" x="160" y="0.0" width="76" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -87,6 +78,15 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="mainCellShareClick"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-W2-hs5" userLabel="踩">
+                                <rect key="frame" x="84" y="0.0" width="76" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="3" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="踩" image="mainCellCai">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="mainCellCaiClick"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -147,6 +147,15 @@
                 </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="caiButton" destination="KXf-W2-hs5" id="edm-51-7tx"/>
+                <outlet property="commentButton" destination="XNX-yA-XD3" id="z4h-k7-Gmd"/>
+                <outlet property="creatTimeLabel" destination="xR3-2y-1gC" id="kYp-Iv-e5N"/>
+                <outlet property="dingButton" destination="X0M-cq-nkX" id="sHH-Ll-0qv"/>
+                <outlet property="nameLabel" destination="dou-MT-GjA" id="HAN-gz-eJO"/>
+                <outlet property="profileImageView" destination="XEh-dx-5K5" id="hxZ-1X-POM"/>
+                <outlet property="repostButton" destination="7lE-00-HpI" id="d8k-De-2rN"/>
+            </connections>
             <point key="canvasLocation" x="311" y="156.5"/>
         </tableViewCell>
     </objects>

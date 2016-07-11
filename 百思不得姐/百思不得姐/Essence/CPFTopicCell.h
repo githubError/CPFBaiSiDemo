@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class CPFTopic;
+
 @interface CPFTopicCell : UITableViewCell
 
 @property (nonatomic, strong) CPFTopic *topic;   // cell数据

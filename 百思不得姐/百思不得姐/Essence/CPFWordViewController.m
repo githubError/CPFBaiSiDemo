@@ -110,6 +110,7 @@ static NSString *cellId = @"topicCell";
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
         NSArray *topic = [CPFTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
         [self.topics addObjectsFromArray:topic];
         
         [self.tableView reloadData];
@@ -134,7 +135,9 @@ static NSString *cellId = @"topicCell";
     
     CPFTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
-    cell.topic = self.topics[indexPath.row];
+    CPFTopic *topic = self.topics[indexPath.row];
+    
+    cell.topic = topic;
     
     return cell;
 }

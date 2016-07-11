@@ -18,12 +18,12 @@
 
 @property (nonatomic, copy) NSString *text;   // 文本内容
 
-@property (nonatomic, assign) NSInteger *ding;   // 点赞人数
+@property (nonatomic, assign) NSInteger ding;   // 点赞人数
 
-@property (nonatomic, assign) NSInteger *cai;   // 踩的人数
+@property (nonatomic, assign) NSInteger cai;   // 踩的人数
 
-@property (nonatomic, assign) NSInteger *repost;   // 转发数
+@property (nonatomic, assign) NSInteger repost;   // 转发数
 
-@property (nonatomic, assign) NSInteger *comment;   // 评论数
+@property (nonatomic, assign) NSInteger comment;   // 评论数
 
 @end
