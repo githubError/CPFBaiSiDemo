@@ -50,6 +50,7 @@
 		D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EFC38A1D0F397A00F914FF /* Assets.xcassets */; };
 		D1EFC38E1D0F397A00F914FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */; };
 		D1EFC3981D0F3AD900F914FF /* CPFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */; };
+		D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2149B1D33DE6F0002F047 /* CPFConsts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		D1EFC38F1D0F397A00F914FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1EFC3961D0F3AD900F914FF /* CPFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTabBarController.h; sourceTree = "<group>"; };
 		D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTabBarController.m; sourceTree = "<group>"; };
+		D1F2149A1D33DE6F0002F047 /* CPFConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFConsts.h; sourceTree = "<group>"; };
+		D1F2149B1D33DE6F0002F047 /* CPFConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFConsts.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 				D1E3B9FD1D0F3F22009FE89C /* UIBarButtonItem+CPFEssence.m */,
 				D1E3B9F11D0F3D55009FE89C /* UIViewExt.h */,
 				D1E3B9F21D0F3D55009FE89C /* UIViewExt.m */,
+				D1F2149A1D33DE6F0002F047 /* CPFConsts.h */,
+				D1F2149B1D33DE6F0002F047 /* CPFConsts.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */,
 				D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */,
 				D13C61401D3100AA003B7EB8 /* CPFVoiceViewController.m in Sources */,
+				D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */,
 				D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */,
 				D13C613D1D31009B003B7EB8 /* CPFPictureViewController.m in Sources */,
 				D1EFC3801D0F397A00F914FF /* main.m in Sources */,

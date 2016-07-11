@@ -22,6 +22,20 @@
 
 @implementation CPFWordViewController
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setupTableView];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    [self.tableView.mj_header beginRefreshing];
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+}
+
+
 - (AFHTTPSessionManager *)manager {
     if (!_manager) {
         _manager = [AFHTTPSessionManager manager];
@@ -36,23 +50,19 @@
     return _topics;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)setupTableView {
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
-    [self.tableView.mj_header beginRefreshing];
-    self.tableView.mj_header.automaticallyChangeAlpha = YES;
-    
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    // 设置contentView的内边距
+    CGFloat top = CPFTitleViewH + CPFTitleViewY - [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
 }
 
-
 #pragma mark - 刷新数据
-
 // 加载新数据
 - (void)loadNewTopics {
+    [self.tableView.mj_footer endRefreshing];
     
-    self.currentPage = 0;
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
@@ -70,6 +80,8 @@
         [self.tableView reloadData];
         
         [self.tableView.mj_header endRefreshing];
+        
+        self.currentPage = 0;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.tableView.mj_header endRefreshing];
     }];
@@ -77,6 +89,7 @@
 
 // 加载更多数据
 - (void)loadMoreTopics {
+    [self.tableView.mj_header endRefreshing];
     
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -100,13 +113,15 @@
         [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.tableView.mj_footer endRefreshing];
+        // 恢复页码
+        self.currentPage--;
     }];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    CPFLog(@"%ld",self.topics.count);
+    
     return self.topics.count;
 }
 

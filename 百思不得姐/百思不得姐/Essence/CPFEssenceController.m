@@ -70,8 +70,8 @@
     UIView *titlesView = [[UIView alloc] init];
     titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7];
     titlesView.width = self.view.width;
-    titlesView.height = 30;
-    titlesView.y = 64;
+    titlesView.height = CPFTitleViewH;
+    titlesView.y = CPFTitleViewY;
     
     NSArray *titles = @[@"全部",@"图片",@"语音",@"视频",@"段子"];
     CGFloat width = titlesView.width / titles.count;
@@ -174,11 +174,6 @@
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     UITableViewController *vc = self.childViewControllers[index];
     vc.view.x = scrollView.contentOffset.x;
-    
-    // 设置contentView的内边距
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame) - 20;
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     
     // 设置滚动条内边距
     vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
