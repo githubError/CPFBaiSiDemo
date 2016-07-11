@@ -53,6 +53,7 @@
 		D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2149B1D33DE6F0002F047 /* CPFConsts.m */; };
 		D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2149E1D33EBCF0002F047 /* CPFTopicCell.m */; };
 		D1F214A11D33EBCF0002F047 /* CPFTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F2149F1D33EBCF0002F047 /* CPFTopicCell.xib */; };
+		D1F214A71D343EC30002F047 /* NSDate+CPFDateExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F214A61D343EC30002F047 /* NSDate+CPFDateExt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,8 @@
 		D1F2149D1D33EBCF0002F047 /* CPFTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopicCell.h; sourceTree = "<group>"; };
 		D1F2149E1D33EBCF0002F047 /* CPFTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopicCell.m; sourceTree = "<group>"; };
 		D1F2149F1D33EBCF0002F047 /* CPFTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFTopicCell.xib; sourceTree = "<group>"; };
+		D1F214A51D343EC30002F047 /* NSDate+CPFDateExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CPFDateExt.h"; sourceTree = "<group>"; };
+		D1F214A61D343EC30002F047 /* NSDate+CPFDateExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CPFDateExt.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +376,8 @@
 				D1E3B9F21D0F3D55009FE89C /* UIViewExt.m */,
 				D1F2149A1D33DE6F0002F047 /* CPFConsts.h */,
 				D1F2149B1D33DE6F0002F047 /* CPFConsts.m */,
+				D1F214A51D343EC30002F047 /* NSDate+CPFDateExt.h */,
+				D1F214A61D343EC30002F047 /* NSDate+CPFDateExt.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F214A71D343EC30002F047 /* NSDate+CPFDateExt.m in Sources */,
 				D1E3BA041D0F417A009FE89C /* CPFNewController.m in Sources */,
 				D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */,
 				D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */,

@@ -35,6 +35,7 @@
 #import <MJRefresh.h>
 #import "CPFConsts.h"
 #import "CPFTopicCell.h"
+#import "NSDate+CPFDateExt.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

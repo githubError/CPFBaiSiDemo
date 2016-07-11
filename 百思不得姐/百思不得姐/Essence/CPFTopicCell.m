@@ -35,6 +35,7 @@
     
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
+    
     self.creatTimeLabel.text = topic.create_time;
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
