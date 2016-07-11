@@ -51,6 +51,8 @@
 		D1EFC38E1D0F397A00F914FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */; };
 		D1EFC3981D0F3AD900F914FF /* CPFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */; };
 		D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2149B1D33DE6F0002F047 /* CPFConsts.m */; };
+		D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2149E1D33EBCF0002F047 /* CPFTopicCell.m */; };
+		D1F214A11D33EBCF0002F047 /* CPFTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F2149F1D33EBCF0002F047 /* CPFTopicCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,9 @@
 		D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTabBarController.m; sourceTree = "<group>"; };
 		D1F2149A1D33DE6F0002F047 /* CPFConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFConsts.h; sourceTree = "<group>"; };
 		D1F2149B1D33DE6F0002F047 /* CPFConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFConsts.m; sourceTree = "<group>"; };
+		D1F2149D1D33EBCF0002F047 /* CPFTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopicCell.h; sourceTree = "<group>"; };
+		D1F2149E1D33EBCF0002F047 /* CPFTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopicCell.m; sourceTree = "<group>"; };
+		D1F2149F1D33EBCF0002F047 /* CPFTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFTopicCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +296,9 @@
 				D175584C1D18053400D83CAC /* CPFRecommendTagCell.h */,
 				D175584D1D18053400D83CAC /* CPFRecommendTagCell.m */,
 				D175584E1D18053400D83CAC /* CPFRecommendTagCell.xib */,
+				D1F2149D1D33EBCF0002F047 /* CPFTopicCell.h */,
+				D1F2149E1D33EBCF0002F047 /* CPFTopicCell.m */,
+				D1F2149F1D33EBCF0002F047 /* CPFTopicCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -527,6 +535,7 @@
 				D1E3BA0E1D0F4769009FE89C /* CPFRecommendController.xib in Resources */,
 				D17558501D18053400D83CAC /* CPFRecommendTagCell.xib in Resources */,
 				D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */,
+				D1F214A11D33EBCF0002F047 /* CPFTopicCell.xib in Resources */,
 				D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */,
 				D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */,
 			);
@@ -615,6 +624,7 @@
 				D175584F1D18053400D83CAC /* CPFRecommendTagCell.m in Sources */,
 				D1E3B9FA1D0F3E32009FE89C /* CPFEssenceController.m in Sources */,
 				D11F7E7F1D1933F50020FA9A /* CPFColorfulPlaceholder.m in Sources */,
+				D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */,
 				D17558581D186D8A00D83CAC /* CPFReverseButton.m in Sources */,
 				D1E3BA081D0F41F1009FE89C /* CPFFriendTrendsController.m in Sources */,
 				D1E3B9F31D0F3D55009FE89C /* UIViewExt.m in Sources */,

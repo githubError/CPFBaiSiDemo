@@ -22,6 +22,7 @@
 
 @implementation CPFWordViewController
 
+static NSString *cellId = @"topicCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +34,8 @@
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFTopicCell class]) bundle:nil] forCellReuseIdentifier:cellId];
 }
 
 
@@ -56,6 +59,7 @@
     CGFloat top = CPFTitleViewH + CPFTitleViewY - [UIApplication sharedApplication].statusBarFrame.size.height;
     CGFloat bottom = self.tabBarController.tabBar.height;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - 刷新数据
@@ -128,20 +132,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
+    CPFTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    CPFTopic *topic = self.topics[indexPath.row];
-    
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - tableView代理
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 180;
 }
 @end
