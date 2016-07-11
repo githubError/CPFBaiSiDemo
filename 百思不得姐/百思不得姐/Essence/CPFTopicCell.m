@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
+@property (weak, nonatomic) IBOutlet UIImageView *jie_VImageView;
 
 @end
 
@@ -37,6 +38,8 @@
     self.nameLabel.text = topic.name;
     
     self.creatTimeLabel.text = topic.create_time;
+    
+    self.jie_VImageView.hidden = !topic.isJie_V;
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
     [self formatWithButton:self.caiButton count:topic.cai title:@"踩"];

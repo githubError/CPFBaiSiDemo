@@ -22,6 +22,13 @@
                             <constraint firstAttribute="width" constant="35" id="j5h-zR-rN5"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_AddV_authen" translatesAutoresizingMaskIntoConstraints="NO" id="4BK-mz-1yp" userLabel="百思认证">
+                        <rect key="frame" x="40" y="40" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="AM0-yD-S1M"/>
+                            <constraint firstAttribute="height" constant="14" id="cXW-5x-wX8"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dou-MT-GjA" userLabel="昵称">
                         <rect key="frame" x="56" y="16" width="30" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -43,12 +50,6 @@
                         <state key="normal" backgroundImage="cellFollowIcon"/>
                         <state key="highlighted" backgroundImage="cellFollowClickIcon"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-content-line" translatesAutoresizingMaskIntoConstraints="NO" id="PcB-kj-F9h" userLabel="分隔线">
-                        <rect key="frame" x="8" y="126" width="304" height="1"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="cCb-gV-VRo"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWX-9t-5MW" userLabel="底部工具条">
                         <rect key="frame" x="0.0" y="127" width="320" height="35"/>
                         <subviews>
@@ -116,14 +117,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-content-line" translatesAutoresizingMaskIntoConstraints="NO" id="PcB-kj-F9h" userLabel="分隔线">
+                        <rect key="frame" x="8" y="126" width="304" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="cCb-gV-VRo"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dou-MT-GjA" firstAttribute="top" secondItem="XEh-dx-5K5" secondAttribute="top" id="4Kk-ay-QNi"/>
+                    <constraint firstItem="4BK-mz-1yp" firstAttribute="trailing" secondItem="XEh-dx-5K5" secondAttribute="trailing" constant="3" id="DAK-Hv-m7D"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WWX-9t-5MW" secondAttribute="bottom" constant="-8" id="FNJ-Ng-EGB"/>
                     <constraint firstItem="DhW-mr-Ebt" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="Hmv-ca-RAY"/>
                     <constraint firstItem="xR3-2y-1gC" firstAttribute="bottom" secondItem="XEh-dx-5K5" secondAttribute="bottom" id="Lmq-uG-uF4"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WWX-9t-5MW" secondAttribute="bottom" id="OPI-8o-NJ1"/>
                     <constraint firstItem="xR3-2y-1gC" firstAttribute="leading" secondItem="XEh-dx-5K5" secondAttribute="trailing" constant="5" id="Ogf-Nj-yp1"/>
+                    <constraint firstItem="4BK-mz-1yp" firstAttribute="bottom" secondItem="XEh-dx-5K5" secondAttribute="bottom" constant="3" id="PZN-i1-0QH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="DhW-mr-Ebt" secondAttribute="trailing" constant="8" id="SWH-tA-zbg"/>
                     <constraint firstItem="dou-MT-GjA" firstAttribute="leading" secondItem="XEh-dx-5K5" secondAttribute="trailing" constant="5" id="T5f-mO-dSm"/>
                     <constraint firstItem="WWX-9t-5MW" firstAttribute="top" secondItem="PcB-kj-F9h" secondAttribute="bottom" id="ZfI-Xc-fSy"/>
@@ -152,6 +161,7 @@
                 <outlet property="commentButton" destination="XNX-yA-XD3" id="z4h-k7-Gmd"/>
                 <outlet property="creatTimeLabel" destination="xR3-2y-1gC" id="kYp-Iv-e5N"/>
                 <outlet property="dingButton" destination="X0M-cq-nkX" id="sHH-Ll-0qv"/>
+                <outlet property="jie_VImageView" destination="4BK-mz-1yp" id="G8t-MB-Ueq"/>
                 <outlet property="nameLabel" destination="dou-MT-GjA" id="HAN-gz-eJO"/>
                 <outlet property="profileImageView" destination="XEh-dx-5K5" id="hxZ-1X-POM"/>
                 <outlet property="repostButton" destination="7lE-00-HpI" id="d8k-De-2rN"/>
@@ -160,6 +170,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Profile_AddV_authen" width="14" height="14"/>
         <image name="cell-content-line" width="299" height="1"/>
         <image name="cellFollowClickIcon" width="19" height="20"/>
         <image name="cellFollowIcon" width="19" height="20"/>

@@ -26,4 +26,6 @@
 
 @property (nonatomic, assign) NSInteger comment;   // 评论数
 
+@property (nonatomic, assign, getter=isJie_V) NSInteger *jie_v;   // 百思认证
+
 @end
