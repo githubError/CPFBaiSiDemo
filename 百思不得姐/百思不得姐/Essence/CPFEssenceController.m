@@ -8,12 +8,6 @@
 
 #import "CPFEssenceController.h"
 
-#import "CPFAllViewController.h"
-#import "CPFPictureViewController.h"
-#import "CPFVoiceViewController.h"
-#import "CPFVideoViewController.h"
-#import "CPFWordViewController.h"
-
 @interface CPFEssenceController () <UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIView *indicatorView;
@@ -85,7 +79,7 @@
     
     self.indicatorView = indicatorView;
     
-    for (NSInteger i = 0; i < titles.count; i++) {
+    for (NSInteger i = 0; i < self.childViewControllers.count; i++) {
         UIButton *button = [[UIButton alloc] init];
         button.width = width;
         button.height = height;
@@ -119,20 +113,20 @@
 // 设置子控制器
 - (void)setupChildVC {
     
-    CPFAllViewController *all = [[CPFAllViewController alloc] init];
-    [self addChildViewController:all];
+    [self initTopicViewCtrWith:CPFTopicTypeAll];
+    [self initTopicViewCtrWith:CPFTopicTypePicture];
+    [self initTopicViewCtrWith:CPFTopicTypeVoice];
+    [self initTopicViewCtrWith:CPFTopicTypeVideo];
+    [self initTopicViewCtrWith:CPFTopicTypeWord];
     
-    CPFPictureViewController *picture = [[CPFPictureViewController alloc] init];
-    [self addChildViewController:picture];
+}
+
+// 初始化自控制器
+- (void)initTopicViewCtrWith:(CPFTopicType)type {
     
-    CPFVoiceViewController *voice = [[CPFVoiceViewController alloc] init];
-    [self addChildViewController:voice];
-    
-    CPFVideoViewController *video = [[CPFVideoViewController alloc] init];
-    [self addChildViewController:video];
-    
-    CPFWordViewController *word = [[CPFWordViewController alloc] init];
-    [self addChildViewController:word];
+    CPFTopicViewController *vc = [[CPFTopicViewController alloc] init];
+    vc.topicType = type;
+    [self addChildViewController:vc];
 }
 
 // 标签点击

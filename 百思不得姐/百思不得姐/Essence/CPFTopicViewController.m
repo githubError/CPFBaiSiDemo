@@ -1,14 +1,14 @@
 //
-//  CPFWordViewController.m
+//  CPFTopicViewController.m
 //  百思不得姐
 //
-//  Created by cuipengfei on 16/7/9.
+//  Created by cuipengfei on 16/7/11.
 //  Copyright © 2016年 崔鹏飞. All rights reserved.
 //
 
-#import "CPFWordViewController.h"
+#import "CPFTopicViewController.h"
 
-@interface CPFWordViewController ()
+@interface CPFTopicViewController ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation CPFWordViewController
+@implementation CPFTopicViewController
 
 static NSString *cellId = @"topicCell";
 
@@ -71,7 +71,7 @@ static NSString *cellId = @"topicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.topicType);
     
     // 发送请求
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -99,7 +99,7 @@ static NSString *cellId = @"topicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.topicType);
     params[@"page"] = @(++self.currentPage);
     params[@"maxtime"] = self.maxtime;
     
