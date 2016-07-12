@@ -8,6 +8,7 @@
 
 #import "CPFTopicPictureView.h"
 #import <DALabeledCircularProgressView.h>
+#import "CPFShowPictureController.h"
 
 @interface CPFTopicPictureView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -31,7 +32,7 @@
         self.progressView.hidden = NO;
         CGFloat progress = 1.0 * receivedSize / expectedSize;
         [self.progressView setProgress:progress];
-        self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",progress * 100];
+        self.progressView.progressLabel.text = [[NSString stringWithFormat:@"%.0f%%",progress * 100] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.progressView.hidden = YES;
     }];
@@ -49,10 +50,21 @@
     }
 }
 
+// 模态视图显示图片
+- (void)showPictuer {
+    CPFShowPictureController *showPicture = [[CPFShowPictureController alloc] init];
+    showPicture.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:showPicture animated:YES completion:nil];
+}
+
 - (void)awakeFromNib {
     self.autoresizingMask = UIViewAutoresizingNone;
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    // 图片交互
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPictuer)]];
 }
 
 @end

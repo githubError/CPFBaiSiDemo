@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CPFShowPictureController">
+            <connections>
+                <outlet property="scrollView" destination="C45-zK-vQJ" id="fup-oU-hdq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="458"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C45-zK-vQJ">
+                    <rect key="frame" x="0.0" y="0.0" width="282" height="458"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZW-Li-JO3" userLabel="保存">
+                    <rect key="frame" x="222" y="408" width="40" height="20"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="BSq-1t-wNW"/>
+                        <constraint firstAttribute="height" constant="20" id="Wqu-cZ-0TU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="savePicture" destination="-1" eventType="touchUpInside" id="h94-7u-6N0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-Ww-Vex" userLabel="转发">
+                    <rect key="frame" x="167" y="408" width="40" height="20"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="AXj-jo-MBu"/>
+                        <constraint firstAttribute="height" constant="20" id="J98-bc-oZv"/>
+                        <constraint firstAttribute="width" constant="40" id="JYS-pA-C9D"/>
+                        <constraint firstAttribute="width" constant="40" id="ces-nP-kqO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="转发">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYA-fE-BMT" userLabel="返回">
+                    <rect key="frame" x="20" y="40" width="15" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="2wA-Um-w8j"/>
+                        <constraint firstAttribute="height" constant="21" id="9Uh-FS-uZs"/>
+                    </constraints>
+                    <state key="normal" image="backBtnbg"/>
+                    <connections>
+                        <action selector="back" destination="-1" eventType="touchUpInside" id="3Mc-Z3-cgf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="C45-zK-vQJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5xE-fq-A1p"/>
+                <constraint firstItem="C45-zK-vQJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B9y-Mt-ztr"/>
+                <constraint firstItem="KYA-fE-BMT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ETA-Kv-42A"/>
+                <constraint firstAttribute="trailing" secondItem="PZW-Li-JO3" secondAttribute="trailing" constant="20" id="HAi-pE-c4I"/>
+                <constraint firstItem="PZW-Li-JO3" firstAttribute="leading" secondItem="BpX-Ww-Vex" secondAttribute="trailing" constant="15" id="Ins-Kr-dgS"/>
+                <constraint firstAttribute="trailing" secondItem="C45-zK-vQJ" secondAttribute="trailing" id="KqI-HI-xsg"/>
+                <constraint firstItem="KYA-fE-BMT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="TPE-eQ-jZB"/>
+                <constraint firstAttribute="bottom" secondItem="BpX-Ww-Vex" secondAttribute="bottom" constant="30" id="VjF-Km-WoR"/>
+                <constraint firstAttribute="bottom" secondItem="PZW-Li-JO3" secondAttribute="bottom" constant="30" id="WR6-s7-tnh"/>
+                <constraint firstAttribute="bottom" secondItem="C45-zK-vQJ" secondAttribute="bottom" id="bMv-qj-vMa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="339" y="374"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBtnbg" width="15" height="21"/>
+    </resources>
+</document>
