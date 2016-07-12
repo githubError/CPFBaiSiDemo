@@ -11,18 +11,9 @@
             <rect key="frame" x="0.0" y="0.0" width="289" height="266"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThM-LS-Sm7" userLabel="图片">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThM-LS-Sm7" userLabel="图片">
                     <rect key="frame" x="0.0" y="0.0" width="289" height="266"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-o6-cbG">
-                    <rect key="frame" x="0.0" y="223" width="289" height="43"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="43" id="iI3-9h-Gj2"/>
-                    </constraints>
-                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-Ou-seH" userLabel="GIF标识">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                     <constraints>
@@ -30,6 +21,14 @@
                         <constraint firstAttribute="width" constant="31" id="Lcf-Z8-nao"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-o6-cbG">
+                    <rect key="frame" x="0.0" y="223" width="289" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="iI3-9h-Gj2"/>
+                    </constraints>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -46,11 +45,11 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="gifImageView" destination="7g9-Ou-seH" id="RsC-fe-Qbh"/>
-                <outlet property="imageView" destination="ThM-LS-Sm7" id="T7V-nk-iDb"/>
-                <outlet property="seeBigButton" destination="OIi-o6-cbG" id="N3f-9u-4Ae"/>
+                <outlet property="gifImageView" destination="7g9-Ou-seH" id="v0O-ba-XDa"/>
+                <outlet property="imageView" destination="ThM-LS-Sm7" id="xFW-ma-ZKX"/>
+                <outlet property="seeBigButton" destination="OIi-o6-cbG" id="0zi-NU-uvF"/>
             </connections>
-            <point key="canvasLocation" x="333.5" y="167"/>
+            <point key="canvasLocation" x="149.5" y="194"/>
         </view>
     </objects>
     <resources>

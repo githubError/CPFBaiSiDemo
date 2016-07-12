@@ -26,6 +26,18 @@
     
     // 设置图片
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    
+    // 隐藏gifImageView标识
+    NSString *extension= topic.large_image.pathExtension;
+    self.gifImageView.hidden = ![extension.lowercaseString isEqualToString:@"gif"];
+    
+    if (topic.isBigPicture) {
+        self.seeBigButton.hidden = NO;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    }else {
+        self.seeBigButton.hidden = YES;
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
+    }
 }
 
 - (void)awakeFromNib {

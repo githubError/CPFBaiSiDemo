@@ -66,6 +66,15 @@
             // 等比例缩放图片
             CGFloat pictureW = maxSize.width;
             CGFloat pictureH = pictureW * self.height / self.width;
+            
+            // 判断是否为大图片
+            if (pictureH >= CPFTopicCellPictureMaxH) {
+                self.bigPicture = YES;
+                pictureH = CPFTopicCellPictureOverMaxH;
+            } else {
+                self.bigPicture = NO;
+            }
+            
             CGFloat pictureY = textY + textH + CPFTopicCellMargin;
             CGFloat pictureX = CPFTopicCellMargin;
             _pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
