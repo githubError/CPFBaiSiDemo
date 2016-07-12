@@ -71,8 +71,6 @@
             if (pictureH >= CPFTopicCellPictureMaxH) {
                 self.bigPicture = YES;
                 pictureH = CPFTopicCellPictureOverMaxH;
-            } else {
-                self.bigPicture = NO;
             }
             
             CGFloat pictureY = textY + textH + CPFTopicCellMargin;

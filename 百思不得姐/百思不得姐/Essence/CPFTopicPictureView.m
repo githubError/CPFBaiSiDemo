@@ -32,11 +32,11 @@
     self.gifImageView.hidden = ![extension.lowercaseString isEqualToString:@"gif"];
     
     if (topic.isBigPicture) {
-        self.seeBigButton.hidden = NO;
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.seeBigButton.hidden = NO;
     }else {
-        self.seeBigButton.hidden = YES;
         self.imageView.contentMode = UIViewContentModeScaleToFill;
+        self.seeBigButton.hidden = YES;
     }
 }
 
