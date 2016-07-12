@@ -11,6 +11,7 @@
 @interface CPFTopic ()
 {
     CGFloat _cellHeight;
+    CGRect _pictureFrame;
 }
 
 @end
@@ -58,9 +59,31 @@
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size.height;
         CGFloat buttomBarH = CPFTopicCellButtomBarH;
         
-        _cellHeight = textY + textH + buttomBarH + 2 * CPFTopicCellMargin;
+        _cellHeight = textY + textH + buttomBarH ;
+        
+        if (self.type == CPFTopicTypePicture) {
+            
+            // 等比例缩放图片
+            CGFloat pictureW = maxSize.width;
+            CGFloat pictureH = pictureW * self.height / self.width;
+            CGFloat pictureY = textY + textH + CPFTopicCellMargin;
+            CGFloat pictureX = CPFTopicCellMargin;
+            _pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+            
+            _cellHeight += pictureH + CPFTopicCellMargin;
+        }
+        _cellHeight += 2 * CPFTopicCellMargin;
     }
     return _cellHeight;
+}
+
+// 转换服务器返回模型属性名
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{
+             @"small_image" : @"image0",
+             @"large_image" : @"image1",
+             @"middle_image" : @"image2",
+             };
 }
 
 @end

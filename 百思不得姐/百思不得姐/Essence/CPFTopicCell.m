@@ -20,9 +20,20 @@
 @property (weak, nonatomic) IBOutlet UIImageView *jie_VImageView;
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 
+@property (nonatomic, weak) CPFTopicPictureView *pictureView;   // cell中间内容
+
 @end
 
 @implementation CPFTopicCell
+
+- (CPFTopicPictureView *)pictureView {
+    if (!_pictureView) {
+        CPFTopicPictureView *pictureView = [CPFTopicPictureView pictureView];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
 
 - (void)awakeFromNib {
     
@@ -43,6 +54,12 @@
     self.jie_VImageView.hidden = !topic.isJie_V;
     
     self.text_label.text = topic.text;
+    
+    // 根据帖子类型添加内容
+    if (topic.type == CPFTopicTypePicture) {
+        self.pictureView.topic = topic;
+        self.pictureView.frame = topic.pictureFrame;
+    }
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
     [self formatWithButton:self.caiButton count:topic.cai title:@"踩"];

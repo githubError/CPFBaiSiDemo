@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    CPFTopicTypeAll = 1,
-    CPFTopicTypePicture = 10,
-    CPFTopicTypeWord = 29,
-    CPFTopicTypeVoice = 31,
-    CPFTopicTypeVideo = 41
-}CPFTopicType;
-
 @interface CPFTopicViewController : UITableViewController
 
 @property (nonatomic, assign) CPFTopicType topicType;  // 帖子类型

@@ -28,7 +28,17 @@
 
 @property (nonatomic, assign, getter=isJie_V) NSInteger *jie_v;   // 百思认证
 
+@property (nonatomic, copy) NSString *small_image;  // 小图片
+@property (nonatomic, copy) NSString *middle_image;  // 中图片
+@property (nonatomic, copy) NSString *large_image;  // 大图片
+
+@property (nonatomic, assign) CGFloat height;   // 图片高度
+@property (nonatomic, assign) CGFloat width;   // 图片宽度
+
+@property (nonatomic, assign) NSInteger type;  // 帖子类型
+
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;   // cell的高度
+@property (nonatomic, assign, readonly) CGRect pictureFrame;   // 图片控件位置
 
 @end
