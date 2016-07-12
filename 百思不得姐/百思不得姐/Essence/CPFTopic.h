@@ -28,4 +28,7 @@
 
 @property (nonatomic, assign, getter=isJie_V) NSInteger *jie_v;   // 百思认证
 
+
+@property (nonatomic, assign, readonly) CGFloat cellHeight;   // cell的高度
+
 @end

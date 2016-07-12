@@ -8,6 +8,13 @@
 
 #import "CPFTopic.h"
 
+@interface CPFTopic ()
+{
+    CGFloat _cellHeight;
+}
+
+@end
+
 @implementation CPFTopic
 
 - (NSString *)create_time {
@@ -39,6 +46,21 @@
     } else { // 非今年
         return _create_time;
     }
+}
+
+
+- (CGFloat)cellHeight {
+    
+    if (!_cellHeight) {
+        
+        CGFloat textY = CPFTopicCellTopBarH + 3 * CPFTopicCellMargin;
+        CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * CPFTopicCellMargin, MAXFLOAT);
+        CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size.height;
+        CGFloat buttomBarH = CPFTopicCellButtomBarH;
+        
+        _cellHeight = textY + textH + buttomBarH + 2 * CPFTopicCellMargin;
+    }
+    return _cellHeight;
 }
 
 @end

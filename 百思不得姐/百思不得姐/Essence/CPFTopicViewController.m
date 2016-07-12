@@ -144,6 +144,9 @@ static NSString *cellId = @"topicCell";
 
 #pragma mark - tableView代理
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 180;
+    
+    CPFTopic *topic = self.topics[indexPath.row];
+    
+    return topic.cellHeight;
 }
 @end

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIImageView *jie_VImageView;
+@property (weak, nonatomic) IBOutlet UILabel *text_label;
 
 @end
 
@@ -41,6 +42,8 @@
     
     self.jie_VImageView.hidden = !topic.isJie_V;
     
+    self.text_label.text = topic.text;
+    
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
     [self formatWithButton:self.caiButton count:topic.cai title:@"踩"];
     [self formatWithButton:self.commentButton count:topic.comment title:@"评论"];
@@ -59,10 +62,10 @@
 
 - (void)setFrame:(CGRect)frame {
     
-    frame.origin.x = 10;
+    frame.origin.x = CPFTopicCellMargin;
     frame.size.width -= 2 * frame.origin.x;
-    frame.size.height -= 5;
-    frame.origin.y += 5;
+    frame.size.height -= CPFTopicCellMargin;
+    frame.origin.y += CPFTopicCellMargin;
     
     [super setFrame:frame];
 }
