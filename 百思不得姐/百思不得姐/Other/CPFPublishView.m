@@ -1,26 +1,32 @@
 //
-//  CPFPublishViewController.m
+//  CPFPublishView.m
 //  百思不得姐
 //
 //  Created by cuipengfei on 16/7/13.
 //  Copyright © 2016年 崔鹏飞. All rights reserved.
 //
 
-#import "CPFPublishViewController.h"
+#import "CPFPublishView.h"
 #import "CPFReverseButton.h"
 #import <POP.h>
 
-@interface CPFPublishViewController ()
+#define CPFRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
+
+@interface CPFPublishView ()
 
 @end
 
-@implementation CPFPublishViewController
+@implementation CPFPublishView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
++ (instancetype)publishView {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
+
+- (void)awakeFromNib {
     
     // 动画结束前禁止子视图响应事件
-    self.view.userInteractionEnabled = NO;
+    CPFRootView.userInteractionEnabled = NO;
+    self.userInteractionEnabled = NO;
     
     // 按钮数据
     NSArray *images = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
@@ -48,7 +54,7 @@
         CGFloat buttonX = buttonStartX + col * colMargin;
         CGFloat buttonEndY = buttonStartY + row * buttonH;;
         CGFloat buttonBeginY = buttonH - CPFScreenH;
-        [self.view addSubview:button];
+        [self addSubview:button];
         
         // 按钮动画
         POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
@@ -64,7 +70,7 @@
     CGFloat sloganViewEndY = CPFScreenH * 0.15;
     CGFloat sloganViewBeginY = sloganViewEndY - CPFScreenH;
     CGFloat sloganViewX = CPFScreenW * 0.5;
-    [self.view addSubview:sloganView];
+    [self addSubview:sloganView];
     
     // slogan动画
     POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
@@ -74,7 +80,9 @@
     anim.springSpeed = 5;
     anim.beginTime = CACurrentMediaTime() + images.count * 0.1;
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
-        self.view.userInteractionEnabled = YES;
+        
+        CPFRootView.userInteractionEnabled = YES;
+        self.userInteractionEnabled = YES;
     }];
     [sloganView pop_addAnimation:anim forKey:nil];
 }
@@ -107,19 +115,21 @@
     }];
 }
 
+// 退出动画
 - (void)cancelWithCompletionBlock:(void(^)())completionBlock {
     
-    for (int i = 2; i < self.view.subviews.count; i++) {
-        UIView *subview = self.view.subviews[i];
+    for (int i = 1; i < self.subviews.count; i++) {
+        UIView *subview = self.subviews[i];
         CGFloat subviewEndY = subview.centerY + CPFScreenH;
         POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
         anim.toValue = [NSValue valueWithCGPoint:CGPointMake(subview.centerX, subviewEndY)];
-        anim.beginTime = CACurrentMediaTime() + (i - 2) * 0.1;
+        anim.beginTime = CACurrentMediaTime() + (i - 1) * 0.1;
         [subview pop_addAnimation:anim forKey:nil];
         
-        if (i == self.view.subviews.count - 1) {
+        if (i == self.subviews.count - 1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
-                [self dismissViewControllerAnimated:NO completion:nil];
+                CPFRootView.userInteractionEnabled = YES;
+                [self removeFromSuperview];
                 !completionBlock ? : completionBlock();
             }];
         }

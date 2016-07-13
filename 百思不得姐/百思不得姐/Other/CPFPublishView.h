@@ -1,5 +1,5 @@
 //
-//  CPFPublishViewController.h
+//  CPFPublishView.h
 //  百思不得姐
 //
 //  Created by cuipengfei on 16/7/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CPFPublishViewController : UIViewController
+@interface CPFPublishView : UIView
+
++ (instancetype)publishView;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CPFTabBar.h"
-#import "CPFPublishViewController.h"
+#import "CPFPublishView.h"
 
 @interface CPFTabBar ()
 /** 发布按钮 */
@@ -37,8 +37,10 @@
 }
 
 - (void)publishClick {
-    CPFPublishViewController *publish = [[CPFPublishViewController alloc] init];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:NO completion:nil];
+    CPFPublishView *publish = [CPFPublishView publishView];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    publish.frame = window.bounds;
+    [window addSubview:publish];
 }
 
 - (void)layoutSubviews
