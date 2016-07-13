@@ -7,6 +7,7 @@
 //
 
 #import "CPFTabBar.h"
+#import "CPFPublishViewController.h"
 
 @interface CPFTabBar ()
 /** 发布按钮 */
@@ -26,11 +27,18 @@
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
+        
         publishButton.size = publishButton.currentBackgroundImage.size;
         [self addSubview:publishButton];
         self.publishButton = publishButton;
     }
     return self;
+}
+
+- (void)publishClick {
+    CPFPublishViewController *publish = [[CPFPublishViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:NO completion:nil];
 }
 
 - (void)layoutSubviews

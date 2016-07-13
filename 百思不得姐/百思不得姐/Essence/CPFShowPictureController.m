@@ -23,24 +23,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
-    
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.userInteractionEnabled = YES;
     [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)]];
     self.imageView = imageView;
     [self.scrollView addSubview:imageView];
     
-    CGFloat pictureW = screenW;
+    CGFloat pictureW = CPFScreenW;
     CGFloat pictureH = pictureW * self.topic.height / self.topic.width;
     
-    if (pictureH > screenH) {
+    if (pictureH > CPFScreenH) {
         imageView.frame = CGRectMake(0, 0, pictureW, pictureH);
         self.scrollView.contentSize = CGSizeMake(0, pictureH);
     } else {
         imageView.size = CGSizeMake(pictureW, pictureH);
-        imageView.centerY = screenH * 0.5;
+        imageView.centerY = CPFScreenH * 0.5;
     }
     
     // 更新循环引用cell的进度值

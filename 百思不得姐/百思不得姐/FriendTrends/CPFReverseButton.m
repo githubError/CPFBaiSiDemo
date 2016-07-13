@@ -10,10 +10,6 @@
 
 @implementation CPFReverseButton
 
-- (void)awakeFromNib {
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     // 设置imageView位置
@@ -24,6 +20,7 @@
     
     // 设置textLabel位置
     self.titleLabel.x = 0;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.y = self.imageView.height;
     self.titleLabel.width = self.width;
     self.titleLabel.height = self.height - self.titleLabel.y;
