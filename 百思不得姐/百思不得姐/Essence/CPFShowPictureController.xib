@@ -22,7 +22,7 @@
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZW-Li-JO3" userLabel="保存">
                     <rect key="frame" x="222" y="408" width="40" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="BSq-1t-wNW"/>
                         <constraint firstAttribute="height" constant="20" id="Wqu-cZ-0TU"/>
@@ -37,7 +37,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-Ww-Vex" userLabel="转发">
                     <rect key="frame" x="167" y="408" width="40" height="20"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="AXj-jo-MBu"/>
                         <constraint firstAttribute="height" constant="20" id="J98-bc-oZv"/>
@@ -50,12 +50,12 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYA-fE-BMT" userLabel="返回">
-                    <rect key="frame" x="20" y="40" width="15" height="21"/>
+                    <rect key="frame" x="20" y="35" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="2wA-Um-w8j"/>
-                        <constraint firstAttribute="height" constant="21" id="9Uh-FS-uZs"/>
+                        <constraint firstAttribute="width" constant="35" id="2wA-Um-w8j"/>
+                        <constraint firstAttribute="height" constant="35" id="9Uh-FS-uZs"/>
                     </constraints>
-                    <state key="normal" image="backBtnbg"/>
+                    <state key="normal" image="show_image_back_icon"/>
                     <connections>
                         <action selector="back" destination="-1" eventType="touchUpInside" id="3Mc-Z3-cgf"/>
                     </connections>
@@ -78,7 +78,7 @@
                 <constraint firstItem="PZW-Li-JO3" firstAttribute="leading" secondItem="BpX-Ww-Vex" secondAttribute="trailing" constant="15" id="Ins-Kr-dgS"/>
                 <constraint firstAttribute="trailing" secondItem="C45-zK-vQJ" secondAttribute="trailing" id="KqI-HI-xsg"/>
                 <constraint firstItem="0pn-W9-abc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R38-8o-LYL"/>
-                <constraint firstItem="KYA-fE-BMT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="TPE-eQ-jZB"/>
+                <constraint firstItem="KYA-fE-BMT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="TPE-eQ-jZB"/>
                 <constraint firstAttribute="bottom" secondItem="BpX-Ww-Vex" secondAttribute="bottom" constant="30" id="VjF-Km-WoR"/>
                 <constraint firstAttribute="bottom" secondItem="PZW-Li-JO3" secondAttribute="bottom" constant="30" id="WR6-s7-tnh"/>
                 <constraint firstAttribute="bottom" secondItem="C45-zK-vQJ" secondAttribute="bottom" id="bMv-qj-vMa"/>
@@ -89,6 +89,6 @@
         </view>
     </objects>
     <resources>
-        <image name="backBtnbg" width="15" height="21"/>
+        <image name="show_image_back_icon" width="35" height="35"/>
     </resources>
 </document>
