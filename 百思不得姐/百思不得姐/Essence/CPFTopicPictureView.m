@@ -27,14 +27,33 @@
 - (void)setTopic:(CPFTopic *)topic {
     _topic = topic;
     
+    // 更新循环引用cell的进度值
+    [self.progressView setProgress:topic.picDownloadProgress animated:YES];
+    
     // 设置图片
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
-        CGFloat progress = 1.0 * receivedSize / expectedSize;
-        [self.progressView setProgress:progress];
-        self.progressView.progressLabel.text = [[NSString stringWithFormat:@"%.0f%%",progress * 100] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        
+        topic.picDownloadProgress = 1.0 * receivedSize / expectedSize;
+        [self.progressView setProgress:topic.picDownloadProgress animated:NO];
+        
+        self.progressView.progressLabel.text = [[NSString stringWithFormat:@"%.0f%%",topic.picDownloadProgress * 100] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.progressView.hidden = YES;
+        
+        if (topic.isBigPicture == NO) return;
+        
+        // 开启图形上下文 --> 只显示图片顶部
+        UIGraphicsBeginImageContextWithOptions(topic.pictureFrame.size, YES, 1.0);
+        
+        CGFloat width = topic.pictureFrame.size.width;
+        CGFloat height = width * image.size.height / image.size.width;
+        [image drawInRect:CGRectMake(0, 0, width, height)];
+        
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        // 关闭图形上下文
+        UIGraphicsEndImageContext();
     }];
     
     // 隐藏gifImageView标识
@@ -42,10 +61,8 @@
     self.gifImageView.hidden = ![extension.lowercaseString isEqualToString:@"gif"];
     
     if (topic.isBigPicture) {
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.seeBigButton.hidden = NO;
     }else {
-        self.imageView.contentMode = UIViewContentModeScaleToFill;
         self.seeBigButton.hidden = YES;
     }
 }
