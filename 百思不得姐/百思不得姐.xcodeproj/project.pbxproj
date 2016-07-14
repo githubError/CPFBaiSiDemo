@@ -33,6 +33,8 @@
 		D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44111D12DE9C002620D4 /* CPFRecommendCategoryCell.m */; };
 		D1CF44141D12DE9C002620D4 /* CPFRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CF44121D12DE9C002620D4 /* CPFRecommendCategoryCell.xib */; };
 		D1CF44171D12E3C6002620D4 /* CPFRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44161D12E3C6002620D4 /* CPFRecommendCategory.m */; };
+		D1DA8E3C1D378EE70096D89F /* CPFTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E3B1D378EE70096D89F /* CPFTopicVoiceView.m */; };
+		D1DA8E3E1D378EF50096D89F /* CPFTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */; };
 		D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */; };
 		D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */; };
 		D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */; };
@@ -127,6 +129,9 @@
 		D1CF44121D12DE9C002620D4 /* CPFRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFRecommendCategoryCell.xib; sourceTree = "<group>"; };
 		D1CF44151D12E3C6002620D4 /* CPFRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendCategory.h; sourceTree = "<group>"; };
 		D1CF44161D12E3C6002620D4 /* CPFRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendCategory.m; sourceTree = "<group>"; };
+		D1DA8E3A1D378EE70096D89F /* CPFTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopicVoiceView.h; sourceTree = "<group>"; };
+		D1DA8E3B1D378EE70096D89F /* CPFTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopicVoiceView.m; sourceTree = "<group>"; };
+		D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFTopicVoiceView.xib; sourceTree = "<group>"; };
 		D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPushGuideView.h; sourceTree = "<group>"; };
 		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPushGuideView.xib; sourceTree = "<group>"; };
@@ -303,6 +308,9 @@
 				D116AC911D3524A50036BB74 /* CPFTopicPictureView.h */,
 				D116AC921D3524A50036BB74 /* CPFTopicPictureView.m */,
 				D116AC941D3524BD0036BB74 /* CPFTopicPictureView.xib */,
+				D1DA8E3A1D378EE70096D89F /* CPFTopicVoiceView.h */,
+				D1DA8E3B1D378EE70096D89F /* CPFTopicVoiceView.m */,
+				D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -550,6 +558,7 @@
 				D116AC951D3524BD0036BB74 /* CPFTopicPictureView.xib in Resources */,
 				D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */,
 				D116AC9A1D3590FE0036BB74 /* CPFShowPictureController.xib in Resources */,
+				D1DA8E3E1D378EF50096D89F /* CPFTopicVoiceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +648,7 @@
 				D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */,
 				D17558581D186D8A00D83CAC /* CPFReverseButton.m in Sources */,
 				D1E3BA081D0F41F1009FE89C /* CPFFriendTrendsController.m in Sources */,
+				D1DA8E3C1D378EE70096D89F /* CPFTopicVoiceView.m in Sources */,
 				D1E3B9F31D0F3D55009FE89C /* UIViewExt.m in Sources */,
 				D1CF44171D12E3C6002620D4 /* CPFRecommendCategory.m in Sources */,
 				D17558481D18008600D83CAC /* CPFRecommendTagsController.m in Sources */,

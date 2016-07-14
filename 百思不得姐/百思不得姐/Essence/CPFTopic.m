@@ -12,6 +12,7 @@
 {
     CGFloat _cellHeight;
     CGRect _pictureFrame;
+    CGRect _voiceFrame;
 }
 
 @end
@@ -66,7 +67,6 @@
             // 等比例缩放图片
             CGFloat pictureW = maxSize.width;
             CGFloat pictureH = pictureW * self.height / self.width;
-            
             // 判断是否为大图片
             if (pictureH >= CPFTopicCellPictureMaxH) {
                 self.bigPicture = YES;
@@ -78,6 +78,15 @@
             _pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
             
             _cellHeight += pictureH + CPFTopicCellMargin;
+        } else if (self.type == CPFTopicTypeVoice) {
+            
+            CGFloat voiceX = CPFTopicCellMargin;
+            CGFloat voiceY = textY + textH + CPFTopicCellMargin;
+            CGFloat voiceW = maxSize.width;
+            CGFloat voiceH = voiceW * self.height / self.width;
+            _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+            
+            _cellHeight += (voiceH + CPFTopicCellMargin);
         }
         _cellHeight += 2 * CPFTopicCellMargin;
     }

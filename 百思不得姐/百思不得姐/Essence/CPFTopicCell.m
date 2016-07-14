@@ -7,6 +7,7 @@
 //
 
 #import "CPFTopicCell.h"
+#import "CPFTopicVoiceView.h"
 
 @interface CPFTopicCell ()
 
@@ -20,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *jie_VImageView;
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 
-@property (nonatomic, weak) CPFTopicPictureView *pictureView;   // cell中间内容
+@property (nonatomic, weak) CPFTopicPictureView *pictureView;   // cell中间图片内容
+@property (nonatomic, weak) CPFTopicVoiceView *voiceView;   // cell中间的音频内容
 
 @end
 
@@ -33,6 +35,15 @@
         _pictureView = pictureView;
     }
     return _pictureView;
+}
+
+- (CPFTopicVoiceView *)voiceView {
+    if (!_voiceView) {
+        CPFTopicVoiceView *voiceView = [CPFTopicVoiceView voiceView];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
 }
 
 - (void)awakeFromNib {
@@ -59,6 +70,10 @@
     if (topic.type == CPFTopicTypePicture) {
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureFrame;
+    } else if (topic.type == CPFTopicTypeVoice) {
+        self.voiceView.topic = topic;
+        self.voiceView.frame = topic.voiceFrame;
+        NSLog(@"%@",NSStringFromCGRect(topic.voiceFrame));
     }
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];

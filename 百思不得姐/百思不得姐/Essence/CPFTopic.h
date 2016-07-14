@@ -37,10 +37,16 @@
 
 @property (nonatomic, assign) NSInteger type;  // 帖子类型
 
+@property (nonatomic, assign) NSInteger voicetime;   // 音频时长
+
+@property (nonatomic, assign) NSInteger playcount;   // 播放次数
+
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;   // cell的高度
 @property (nonatomic, assign, readonly) CGRect pictureFrame;   // 图片控件位置
 @property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;   // 大图片标识
 @property (nonatomic, assign) CGFloat picDownloadProgress;   // 图片下载进度
+
+@property (nonatomic, assign, readonly) CGRect voiceFrame;   // 音频控件的位置
 
 @end
