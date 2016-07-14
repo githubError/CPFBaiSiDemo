@@ -113,7 +113,7 @@
     CPFComment *cmt = [topic.top_cmt firstObject];
     if (cmt) {
         self.topcmtView.hidden = NO;
-        self.topcmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+        self.topcmtContentLabel.text = [NSString stringWithFormat:@"%@：%@",cmt.user.username, cmt.content];
     } else {
         self.topcmtView.hidden = YES;
     }

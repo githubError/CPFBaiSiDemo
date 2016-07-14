@@ -83,7 +83,7 @@
             CGFloat voiceH = voiceW * self.height / self.width;
             _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
             
-            _cellHeight += voiceH + CPFTopicCellMargin;
+            _cellHeight += voiceH + 2 * CPFTopicCellMargin;
         } else if (self.type == CPFTopicTypeVideo) {
             CGFloat videoX = CPFTopicCellMargin;
             CGFloat videoY = textY + textH + CPFTopicCellMargin;
@@ -97,7 +97,7 @@
         // 最热评论
         CPFComment *cmt = [self.top_cmt firstObject];
         if (cmt) {
-            NSString *content = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+            NSString *content = [NSString stringWithFormat:@"%@：%@",cmt.user.username, cmt.content];
             CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} context:nil].size.height;
             _cellHeight += CPFTopicCellTopCmtTitleH + contentH + CPFTopicCellMargin;
         }
