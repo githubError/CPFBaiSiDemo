@@ -12,6 +12,9 @@ CGFloat const CPFTopicCellPictureMaxH = 800;
 // 图片高度溢出
 CGFloat const CPFTopicCellPictureOverMaxH = 250;
 
+// 最热评论标题高度
+CGFloat const CPFTopicCellTopCmtTitleH = 20;
+
 
 // 用户性别
 NSString const *CPFUserSexMale = @"m";

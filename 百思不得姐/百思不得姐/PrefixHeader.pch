@@ -38,6 +38,8 @@
 #import "NSDate+CPFDateExt.h"
 #import "CPFTopicViewController.h"
 #import "CPFTopicPictureView.h"
+#import "CPFComment.h"
+#import "CPFUser.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

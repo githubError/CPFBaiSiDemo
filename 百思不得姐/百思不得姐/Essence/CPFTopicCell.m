@@ -22,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *jie_VImageView;
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 
+// 最热评论
+@property (weak, nonatomic) IBOutlet UIView *topcmtView;
+@property (weak, nonatomic) IBOutlet UILabel *topcmtContentLabel;
+
 @property (nonatomic, weak) CPFTopicPictureView *pictureView;   // cell中间图片内容
 @property (nonatomic, weak) CPFTopicVoiceView *voiceView;   // cell中间的音频内容
 @property (nonatomic, weak) CPFTopicVideoView *videoView;   // cell中间的音频内容
@@ -104,6 +108,16 @@
         self.videoView.hidden = YES;
         self.voiceView.hidden = YES;
     }
+    
+    // 最热评论
+    CPFComment *cmt = [topic.top_cmt firstObject];
+    if (cmt) {
+        self.topcmtView.hidden = NO;
+        self.topcmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+    } else {
+        self.topcmtView.hidden = YES;
+    }
+    
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
     [self formatWithButton:self.caiButton count:topic.cai title:@"踩"];

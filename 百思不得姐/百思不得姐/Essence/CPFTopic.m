@@ -56,9 +56,8 @@
         CGFloat textY = CPFTopicCellTopBarH + 3 * CPFTopicCellMargin;
         CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * CPFTopicCellMargin, MAXFLOAT);
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size.height;
-        CGFloat buttomBarH = CPFTopicCellButtomBarH;
         
-        _cellHeight = textY + textH + buttomBarH ;
+        _cellHeight = textY + textH  ;
         
         if (self.type == CPFTopicTypePicture) {
             
@@ -84,7 +83,7 @@
             CGFloat voiceH = voiceW * self.height / self.width;
             _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
             
-            _cellHeight += (voiceH + CPFTopicCellMargin);
+            _cellHeight += voiceH + CPFTopicCellMargin;
         } else if (self.type == CPFTopicTypeVideo) {
             CGFloat videoX = CPFTopicCellMargin;
             CGFloat videoY = textY + textH + CPFTopicCellMargin;
@@ -92,9 +91,17 @@
             CGFloat videoH = videoW * self.height / self.width;
             _videoFrame = CGRectMake(videoX, videoY, videoW, videoH);
             
-            _cellHeight += (videoH + CPFTopicCellMargin);
+            _cellHeight += videoH + CPFTopicCellMargin;
         }
-        _cellHeight += 2 * CPFTopicCellMargin;
+        
+        // 最热评论
+        CPFComment *cmt = [self.top_cmt firstObject];
+        if (cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} context:nil].size.height;
+            _cellHeight += CPFTopicCellTopCmtTitleH + contentH + CPFTopicCellMargin;
+        }
+        _cellHeight += CPFTopicCellButtomBarH + 3 * CPFTopicCellMargin;
     }
     return _cellHeight;
 }

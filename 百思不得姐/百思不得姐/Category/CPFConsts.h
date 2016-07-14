@@ -18,6 +18,9 @@ UIKIT_EXTERN CGFloat const CPFTopicCellMargin;
 UIKIT_EXTERN CGFloat const CPFTopicCellButtomBarH;
 UIKIT_EXTERN CGFloat const CPFTopicCellTopBarH;
 
+// 最热评论标题高度
+UIKIT_EXTERN CGFloat const CPFTopicCellTopCmtTitleH;
+
 // 图片最大不压缩高度
 UIKIT_EXTERN CGFloat const CPFTopicCellPictureMaxH;
 // 图片高度溢出
