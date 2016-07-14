@@ -21,6 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
+                        <outlet property="dataSource" destination="-1" id="nCn-sR-P12"/>
                         <outlet property="delegate" destination="-1" id="aPk-GN-ifN"/>
                     </connections>
                 </tableView>
