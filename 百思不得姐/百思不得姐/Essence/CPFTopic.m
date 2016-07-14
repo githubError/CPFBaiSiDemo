@@ -11,8 +11,6 @@
 @interface CPFTopic ()
 {
     CGFloat _cellHeight;
-    CGRect _pictureFrame;
-    CGRect _voiceFrame;
 }
 
 @end
@@ -87,6 +85,14 @@
             _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
             
             _cellHeight += (voiceH + CPFTopicCellMargin);
+        } else if (self.type == CPFTopicTypeVideo) {
+            CGFloat videoX = CPFTopicCellMargin;
+            CGFloat videoY = textY + textH + CPFTopicCellMargin;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW * self.height / self.width;
+            _videoFrame = CGRectMake(videoX, videoY, videoW, videoH);
+            
+            _cellHeight += (videoH + CPFTopicCellMargin);
         }
         _cellHeight += 2 * CPFTopicCellMargin;
     }

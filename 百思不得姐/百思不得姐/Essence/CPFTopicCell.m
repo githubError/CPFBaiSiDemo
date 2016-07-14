@@ -8,6 +8,7 @@
 
 #import "CPFTopicCell.h"
 #import "CPFTopicVoiceView.h"
+#import "CPFTopicVideoView.h"
 
 @interface CPFTopicCell ()
 
@@ -23,6 +24,7 @@
 
 @property (nonatomic, weak) CPFTopicPictureView *pictureView;   // cell中间图片内容
 @property (nonatomic, weak) CPFTopicVoiceView *voiceView;   // cell中间的音频内容
+@property (nonatomic, weak) CPFTopicVideoView *videoView;   // cell中间的音频内容
 
 @end
 
@@ -44,6 +46,15 @@
         _voiceView = voiceView;
     }
     return _voiceView;
+}
+
+- (CPFTopicVideoView *)videoView {
+    if (!_videoView) {
+        CPFTopicVideoView *videoView = [CPFTopicVideoView videoView];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
 }
 
 - (void)awakeFromNib {
@@ -68,12 +79,30 @@
     
     // 根据帖子类型添加内容
     if (topic.type == CPFTopicTypePicture) {
+        self.pictureView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureFrame;
     } else if (topic.type == CPFTopicTypeVoice) {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = NO;
+        
         self.voiceView.topic = topic;
         self.voiceView.frame = topic.voiceFrame;
-        NSLog(@"%@",NSStringFromCGRect(topic.voiceFrame));
+    } else if (topic.type == CPFTopicTypeVideo) {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.voiceView.hidden = YES;
+        
+        self.videoView.topic = topic;
+        self.videoView.frame = topic.videoFrame;
+    } else {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
     }
     
     [self formatWithButton:self.dingButton count:topic.ding title:@"顶"];
