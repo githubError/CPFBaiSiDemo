@@ -206,7 +206,7 @@
                 <outlet property="repostButton" destination="7lE-00-HpI" id="d8k-De-2rN"/>
                 <outlet property="text_label" destination="ips-lY-7IX" id="5dj-1k-Bxh"/>
             </connections>
-            <point key="canvasLocation" x="450" y="201.5"/>
+            <point key="canvasLocation" x="565" y="203.5"/>
         </tableViewCell>
     </objects>
     <resources>

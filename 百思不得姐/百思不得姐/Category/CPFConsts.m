@@ -12,3 +12,9 @@ CGFloat const CPFTopicCellPictureMaxH = 800;
 // 图片高度溢出
 CGFloat const CPFTopicCellPictureOverMaxH = 250;
 
+
+// 用户性别
+NSString const *CPFUserSexMale = @"m";
+NSString const *CPFUserSexFemale = @"f";
+
+

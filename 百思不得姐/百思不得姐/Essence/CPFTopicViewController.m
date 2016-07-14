@@ -76,6 +76,8 @@ static NSString *cellId = @"topicCell";
     // 发送请求
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        [responseObject writeToFile:@"/Users/cuipengfei/Desktop/a.plist" atomically:YES];
+        
         // 保存maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
         

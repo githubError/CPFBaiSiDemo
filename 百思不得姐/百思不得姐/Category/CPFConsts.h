@@ -23,3 +23,7 @@ UIKIT_EXTERN CGFloat const CPFTopicCellPictureMaxH;
 // 图片高度溢出
 UIKIT_EXTERN CGFloat const CPFTopicCellPictureOverMaxH;
 
+// 用户性别
+UIKIT_EXTERN NSString const *CPFUserSexMale;
+UIKIT_EXTERN NSString const *CPFUserSexFemale;
+

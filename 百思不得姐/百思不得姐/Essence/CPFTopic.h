@@ -41,6 +41,8 @@
 @property (nonatomic, assign) NSInteger videotime;   // 视频时长
 @property (nonatomic, assign) NSInteger playcount;   // 播放次数
 
+@property (nonatomic, strong) NSArray *top_cmt;   // 最热评论(存放CPFComment模型数据)
+
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;   // cell的高度
 @property (nonatomic, assign, readonly) CGRect pictureFrame;   // 图片控件位置

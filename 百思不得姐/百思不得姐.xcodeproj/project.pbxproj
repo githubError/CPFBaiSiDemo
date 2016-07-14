@@ -37,6 +37,8 @@
 		D1DA8E3E1D378EF50096D89F /* CPFTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */; };
 		D1DA8E411D37A1F20096D89F /* CPFTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E401D37A1F20096D89F /* CPFTopicVideoView.m */; };
 		D1DA8E431D37A2040096D89F /* CPFTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E421D37A2040096D89F /* CPFTopicVideoView.xib */; };
+		D1DA8E461D37DD050096D89F /* CPFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E451D37DD050096D89F /* CPFUser.m */; };
+		D1DA8E491D37DE580096D89F /* CPFComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E481D37DE580096D89F /* CPFComment.m */; };
 		D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */; };
 		D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */; };
 		D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */; };
@@ -137,6 +139,10 @@
 		D1DA8E3F1D37A1F20096D89F /* CPFTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopicVideoView.h; sourceTree = "<group>"; };
 		D1DA8E401D37A1F20096D89F /* CPFTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopicVideoView.m; sourceTree = "<group>"; };
 		D1DA8E421D37A2040096D89F /* CPFTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFTopicVideoView.xib; sourceTree = "<group>"; };
+		D1DA8E441D37DD050096D89F /* CPFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFUser.h; sourceTree = "<group>"; };
+		D1DA8E451D37DD050096D89F /* CPFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFUser.m; sourceTree = "<group>"; };
+		D1DA8E471D37DE580096D89F /* CPFComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFComment.h; sourceTree = "<group>"; };
+		D1DA8E481D37DE580096D89F /* CPFComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFComment.m; sourceTree = "<group>"; };
 		D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPushGuideView.h; sourceTree = "<group>"; };
 		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPushGuideView.xib; sourceTree = "<group>"; };
@@ -297,6 +303,10 @@
 				D175584A1D18030A00D83CAC /* CPFRecommendTag.m */,
 				D169D4AD1D33A6710095FDCA /* CPFTopic.h */,
 				D169D4AE1D33A6710095FDCA /* CPFTopic.m */,
+				D1DA8E441D37DD050096D89F /* CPFUser.h */,
+				D1DA8E451D37DD050096D89F /* CPFUser.m */,
+				D1DA8E471D37DE580096D89F /* CPFComment.h */,
+				D1DA8E481D37DE580096D89F /* CPFComment.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -637,7 +647,9 @@
 				D1F214A71D343EC30002F047 /* NSDate+CPFDateExt.m in Sources */,
 				D1E3BA041D0F417A009FE89C /* CPFNewController.m in Sources */,
 				D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */,
+				D1DA8E491D37DE580096D89F /* CPFComment.m in Sources */,
 				D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */,
+				D1DA8E461D37DD050096D89F /* CPFUser.m in Sources */,
 				D1F214AA1D34572E0002F047 /* CPFTopicViewController.m in Sources */,
 				D17558541D185A4700D83CAC /* CPFLoginRegisterController.m in Sources */,
 				D1DA8E411D37A1F20096D89F /* CPFTopicVideoView.m in Sources */,

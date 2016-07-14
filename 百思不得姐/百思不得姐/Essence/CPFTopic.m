@@ -107,5 +107,9 @@
              @"middle_image" : @"image2",
              };
 }
+// 将top_cmt数组存放的数据转换成CPFComment类型的模型
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"top_cmt" : @"CPFComment"};
+}
 
 @end
