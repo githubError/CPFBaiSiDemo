@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) NSArray *hotComments;   // 热门评论
+@property (nonatomic, strong) NSMutableArray *latestComments;   // 最新评论
+
 @end
 
 @implementation CPFCommentController
@@ -24,6 +27,35 @@
     [self setupNavgationItem];
     // 设置tableHeaderView
     [self setupTableHeaderView];
+    
+    [self setupRefresh];
+}
+
+- (void)setupRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)loadNewComments {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"hot"] = @"1";
+    
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [responseObject writeToFile:@"/Users/cuipengfei/Desktop/comments.plist" atomically:YES];
+        
+        self.hotComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        self.latestComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 - (void)setupTableHeaderView {
@@ -59,22 +91,23 @@
 #pragma mark - tableView数据源
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if (self.hotComments.count) return 2;
+    if (self.latestComments.count) return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 10;
-    } else {
-        return 20;
-    }
+    if (section == 0)
+        return self.hotComments.count ? self.hotComments.count : self.latestComments.count;
+    
+    return self.latestComments.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"热门评论";
+        return self.hotComments.count ? @"热门评论" : @"最新评论";
     } else {
-        return @"评论";
+        return @"最新评论";
     }
 }
 
@@ -85,7 +118,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"comment"];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd----%zd",indexPath.section, indexPath.row];
+    CPFComment *comment = [self commentsInIndexPath:indexPath];
+    
+    cell.textLabel.text = comment.content;
     return cell;
 }
 
@@ -95,7 +130,18 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark - 其他
 
+- (NSArray *)commentsInSection:(NSInteger)section {
+    if (section == 0) {
+        return self.hotComments.count ? self.hotComments : self.latestComments;
+    }
+    return self.latestComments;
+}
+
+- (CPFComment *)commentsInIndexPath:(NSIndexPath *)indexPath {
+    return [self commentsInSection:indexPath.section][indexPath.row];
+}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

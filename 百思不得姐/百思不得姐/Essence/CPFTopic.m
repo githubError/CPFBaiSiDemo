@@ -112,6 +112,7 @@
              @"small_image" : @"image0",
              @"large_image" : @"image1",
              @"middle_image" : @"image2",
+             @"ID" : @"id"
              };
 }
 // 将top_cmt数组存放的数据转换成CPFComment类型的模型

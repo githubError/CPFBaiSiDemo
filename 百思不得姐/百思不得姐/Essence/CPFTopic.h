@@ -10,6 +10,8 @@
 
 @interface CPFTopic : NSObject
 
+@property (nonatomic, copy) NSString *ID;  // 帖子id
+
 @property (nonatomic, copy) NSString *name;   // 昵称
 
 @property (nonatomic, copy) NSString *profile_image;   // 头像
