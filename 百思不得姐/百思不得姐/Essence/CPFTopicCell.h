@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) CPFTopic *topic;   // cell数据
 
++ (instancetype)topicCell;
+
 @end

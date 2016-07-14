@@ -39,6 +39,8 @@
 		D1DA8E431D37A2040096D89F /* CPFTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E421D37A2040096D89F /* CPFTopicVideoView.xib */; };
 		D1DA8E461D37DD050096D89F /* CPFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E451D37DD050096D89F /* CPFUser.m */; };
 		D1DA8E491D37DE580096D89F /* CPFComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E481D37DE580096D89F /* CPFComment.m */; };
+		D1DA8E4D1D381A620096D89F /* CPFCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E4B1D381A620096D89F /* CPFCommentController.m */; };
+		D1DA8E4E1D381A620096D89F /* CPFCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E4C1D381A620096D89F /* CPFCommentController.xib */; };
 		D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */; };
 		D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */; };
 		D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3B9EC1D0F3C97009FE89C /* CPFNavigationController.m */; };
@@ -143,6 +145,9 @@
 		D1DA8E451D37DD050096D89F /* CPFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFUser.m; sourceTree = "<group>"; };
 		D1DA8E471D37DE580096D89F /* CPFComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFComment.h; sourceTree = "<group>"; };
 		D1DA8E481D37DE580096D89F /* CPFComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFComment.m; sourceTree = "<group>"; };
+		D1DA8E4A1D381A620096D89F /* CPFCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFCommentController.h; sourceTree = "<group>"; };
+		D1DA8E4B1D381A620096D89F /* CPFCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFCommentController.m; sourceTree = "<group>"; };
+		D1DA8E4C1D381A620096D89F /* CPFCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFCommentController.xib; sourceTree = "<group>"; };
 		D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPushGuideView.h; sourceTree = "<group>"; };
 		D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPushGuideView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPushGuideView.xib; sourceTree = "<group>"; };
@@ -292,6 +297,9 @@
 				D116AC961D3590FE0036BB74 /* CPFShowPictureController.h */,
 				D116AC971D3590FE0036BB74 /* CPFShowPictureController.m */,
 				D116AC981D3590FE0036BB74 /* CPFShowPictureController.xib */,
+				D1DA8E4A1D381A620096D89F /* CPFCommentController.h */,
+				D1DA8E4B1D381A620096D89F /* CPFCommentController.m */,
+				D1DA8E4C1D381A620096D89F /* CPFCommentController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -572,6 +580,7 @@
 				D17558501D18053400D83CAC /* CPFRecommendTagCell.xib in Resources */,
 				D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */,
 				D1DA8E431D37A2040096D89F /* CPFTopicVideoView.xib in Resources */,
+				D1DA8E4E1D381A620096D89F /* CPFCommentController.xib in Resources */,
 				D1F214A11D33EBCF0002F047 /* CPFTopicCell.xib in Resources */,
 				D1DC9ADB1D1D4518009AC697 /* CPFPushGuideView.xib in Resources */,
 				D116AC951D3524BD0036BB74 /* CPFTopicPictureView.xib in Resources */,
@@ -657,6 +666,7 @@
 				D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */,
 				D1B4C8D71D36543A008FAC07 /* CPFPublishView.m in Sources */,
 				D1DC9AD91D1D4507009AC697 /* CPFPushGuideView.m in Sources */,
+				D1DA8E4D1D381A620096D89F /* CPFCommentController.m in Sources */,
 				D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */,
 				D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */,
 				D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */,

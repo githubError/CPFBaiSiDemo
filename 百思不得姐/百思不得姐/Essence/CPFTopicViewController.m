@@ -151,4 +151,10 @@ static NSString *cellId = @"topicCell";
     
     return topic.cellHeight;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CPFCommentController *comment = [[CPFCommentController alloc] init];
+    comment.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:comment animated:YES];
+}
 @end

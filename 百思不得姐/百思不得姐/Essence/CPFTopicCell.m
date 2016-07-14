@@ -34,6 +34,10 @@
 
 @implementation CPFTopicCell
 
++ (instancetype)topicCell {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:0] firstObject];
+}
+
 - (CPFTopicPictureView *)pictureView {
     if (!_pictureView) {
         CPFTopicPictureView *pictureView = [CPFTopicPictureView pictureView];
@@ -139,7 +143,7 @@
     
     frame.origin.x = CPFTopicCellMargin;
     frame.size.width -= 2 * frame.origin.x;
-    frame.size.height -= CPFTopicCellMargin;
+    frame.size.height = self.topic.cellHeight - CPFTopicCellMargin;
     frame.origin.y += CPFTopicCellMargin;
     
     [super setFrame:frame];

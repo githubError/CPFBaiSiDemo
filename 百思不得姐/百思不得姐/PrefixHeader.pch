@@ -40,6 +40,7 @@
 #import "CPFTopicPictureView.h"
 #import "CPFComment.h"
 #import "CPFUser.h"
+#import "CPFCommentController.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)
