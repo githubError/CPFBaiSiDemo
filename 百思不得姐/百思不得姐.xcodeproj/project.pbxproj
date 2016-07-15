@@ -30,6 +30,7 @@
 		D17558541D185A4700D83CAC /* CPFLoginRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17558521D185A4700D83CAC /* CPFLoginRegisterController.m */; };
 		D17558551D185A4700D83CAC /* CPFLoginRegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17558531D185A4700D83CAC /* CPFLoginRegisterController.xib */; };
 		D17558581D186D8A00D83CAC /* CPFReverseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D17558571D186D8A00D83CAC /* CPFReverseButton.m */; };
+		D18A87151D3999B70001377D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D18A87141D3999B70001377D /* AppDelegate.m */; };
 		D1B4C8D71D36543A008FAC07 /* CPFPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C8D51D36543A008FAC07 /* CPFPublishView.m */; };
 		D1B4C8D81D36543A008FAC07 /* CPFPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B4C8D61D36543A008FAC07 /* CPFPublishView.xib */; };
 		D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44111D12DE9C002620D4 /* CPFRecommendCategoryCell.m */; };
@@ -131,6 +132,7 @@
 		D17558531D185A4700D83CAC /* CPFLoginRegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFLoginRegisterController.xib; sourceTree = "<group>"; };
 		D17558561D186D8A00D83CAC /* CPFReverseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFReverseButton.h; sourceTree = "<group>"; };
 		D17558571D186D8A00D83CAC /* CPFReverseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFReverseButton.m; sourceTree = "<group>"; };
+		D18A87141D3999B70001377D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D1B4C8D41D36543A008FAC07 /* CPFPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPublishView.h; sourceTree = "<group>"; };
 		D1B4C8D51D36543A008FAC07 /* CPFPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPublishView.m; sourceTree = "<group>"; };
 		D1B4C8D61D36543A008FAC07 /* CPFPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPublishView.xib; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EFC3811D0F397A00F914FF /* AppDelegate.h */,
+				D18A87141D3999B70001377D /* AppDelegate.m */,
 				D1E3B9F41D0F3DBF009FE89C /* Essence */,
 				D1E3B9F71D0F3DFD009FE89C /* New */,
 				D1E3B9F51D0F3DFD009FE89C /* FriendTrends */,
@@ -684,6 +687,7 @@
 				D1E3B9FA1D0F3E32009FE89C /* CPFEssenceController.m in Sources */,
 				D11F7E7F1D1933F50020FA9A /* CPFColorfulPlaceholder.m in Sources */,
 				D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */,
+				D18A87151D3999B70001377D /* AppDelegate.m in Sources */,
 				D17558581D186D8A00D83CAC /* CPFReverseButton.m in Sources */,
 				D1E3BA081D0F41F1009FE89C /* CPFFriendTrendsController.m in Sources */,
 				D1DA8E3C1D378EE70096D89F /* CPFTopicVoiceView.m in Sources */,
