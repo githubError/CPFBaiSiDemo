@@ -27,6 +27,6 @@ UIKIT_EXTERN CGFloat const CPFTopicCellPictureMaxH;
 UIKIT_EXTERN CGFloat const CPFTopicCellPictureOverMaxH;
 
 // 用户性别
-UIKIT_EXTERN NSString const *CPFUserSexMale;
-UIKIT_EXTERN NSString const *CPFUserSexFemale;
+UIKIT_EXTERN NSString  *CPFUserSexMale;
+UIKIT_EXTERN NSString  *CPFUserSexFemale;
 

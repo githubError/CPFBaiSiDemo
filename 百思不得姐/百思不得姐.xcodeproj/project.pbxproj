@@ -20,6 +20,8 @@
 		D14AC9C61D131AEA00BEB0F9 /* CPFRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C41D131AEA00BEB0F9 /* CPFRecommendUserCell.m */; };
 		D14AC9C71D131AEA00BEB0F9 /* CPFRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */; };
 		D14AC9CA1D131ED400BEB0F9 /* CPFRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */; };
+		D14CD6AF1D38F36500B651C5 /* CPFCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14CD6AD1D38F36500B651C5 /* CPFCommentCell.m */; };
+		D14CD6B01D38F36500B651C5 /* CPFCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14CD6AE1D38F36500B651C5 /* CPFCommentCell.xib */; };
 		D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = D169D4AE1D33A6710095FDCA /* CPFTopic.m */; };
 		D17558481D18008600D83CAC /* CPFRecommendTagsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17558471D18008600D83CAC /* CPFRecommendTagsController.m */; };
 		D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D175584A1D18030A00D83CAC /* CPFRecommendTag.m */; };
@@ -113,6 +115,9 @@
 		D14AC9C51D131AEA00BEB0F9 /* CPFRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFRecommendUserCell.xib; sourceTree = "<group>"; };
 		D14AC9C81D131ED400BEB0F9 /* CPFRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendUser.h; sourceTree = "<group>"; };
 		D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFRecommendUser.m; sourceTree = "<group>"; };
+		D14CD6AC1D38F36500B651C5 /* CPFCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFCommentCell.h; sourceTree = "<group>"; };
+		D14CD6AD1D38F36500B651C5 /* CPFCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFCommentCell.m; sourceTree = "<group>"; };
+		D14CD6AE1D38F36500B651C5 /* CPFCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFCommentCell.xib; sourceTree = "<group>"; };
 		D169D4AD1D33A6710095FDCA /* CPFTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopic.h; sourceTree = "<group>"; };
 		D169D4AE1D33A6710095FDCA /* CPFTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopic.m; sourceTree = "<group>"; };
 		D17558461D18008600D83CAC /* CPFRecommendTagsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendTagsController.h; sourceTree = "<group>"; };
@@ -337,6 +342,9 @@
 				D1DA8E3F1D37A1F20096D89F /* CPFTopicVideoView.h */,
 				D1DA8E401D37A1F20096D89F /* CPFTopicVideoView.m */,
 				D1DA8E421D37A2040096D89F /* CPFTopicVideoView.xib */,
+				D14CD6AC1D38F36500B651C5 /* CPFCommentCell.h */,
+				D14CD6AD1D38F36500B651C5 /* CPFCommentCell.m */,
+				D14CD6AE1D38F36500B651C5 /* CPFCommentCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -578,6 +586,7 @@
 				D1EFC38E1D0F397A00F914FF /* LaunchScreen.storyboard in Resources */,
 				D1E3BA0E1D0F4769009FE89C /* CPFRecommendController.xib in Resources */,
 				D17558501D18053400D83CAC /* CPFRecommendTagCell.xib in Resources */,
+				D14CD6B01D38F36500B651C5 /* CPFCommentCell.xib in Resources */,
 				D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */,
 				D1DA8E431D37A2040096D89F /* CPFTopicVideoView.xib in Resources */,
 				D1DA8E4E1D381A620096D89F /* CPFCommentController.xib in Resources */,
@@ -670,6 +679,7 @@
 				D1E3B9ED1D0F3C97009FE89C /* CPFNavigationController.m in Sources */,
 				D1E3B9F01D0F3CF3009FE89C /* CPFTabBar.m in Sources */,
 				D1F2149C1D33DE6F0002F047 /* CPFConsts.m in Sources */,
+				D14CD6AF1D38F36500B651C5 /* CPFCommentCell.m in Sources */,
 				D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */,
 				D1EFC3801D0F397A00F914FF /* main.m in Sources */,
 				D175584F1D18053400D83CAC /* CPFRecommendTagCell.m in Sources */,

@@ -7,6 +7,9 @@
 //
 
 #import "CPFCommentController.h"
+#import "CPFCommentCell.h"
+
+static NSString *commentCellID = @"commentCell";
 
 @interface CPFCommentController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -85,6 +88,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     self.view.backgroundColor = CPFGlobalBg;
+    
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFCommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellID];
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
@@ -123,14 +132,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"comment"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"comment"];
-    }
+    CPFCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentCellID];
     
     CPFComment *comment = [self commentsInIndexPath:indexPath];
-    
-    cell.textLabel.text = comment.content;
+    cell.comment = comment;
     return cell;
 }
 

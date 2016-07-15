@@ -17,7 +17,7 @@ CGFloat const CPFTopicCellTopCmtTitleH = 20;
 
 
 // 用户性别
-NSString const *CPFUserSexMale = @"m";
-NSString const *CPFUserSexFemale = @"f";
+NSString  *CPFUserSexMale = @"m";
+NSString  *CPFUserSexFemale = @"f";
 
 
