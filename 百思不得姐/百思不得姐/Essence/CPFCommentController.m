@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSArray *hotComments;   // 热门评论
 @property (nonatomic, strong) NSMutableArray *latestComments;   // 最新评论
 
+@property (nonatomic, strong) NSArray *saved_top_cmt;   // 存放热门评论
+
 @end
 
 @implementation CPFCommentController
@@ -60,6 +62,14 @@
 
 - (void)setupTableHeaderView {
     UIView *header = [[UIView alloc] init];
+    
+    // 清除评论cell中的热门评论
+    if (self.topic.top_cmt.count) {
+        self.saved_top_cmt = self.topic.top_cmt;
+        self.topic.top_cmt = nil;
+        [self.topic setValue:@0 forKeyPath:@"cellHeight"];
+    }
+    
     CPFTopicCell *topicCell = [CPFTopicCell topicCell];
     topicCell.topic = self.topic;
     topicCell.size = CGSizeMake(CPFScreenW, self.topic.cellHeight);
@@ -130,6 +140,26 @@
     [self.view endEditing:YES];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerTitleView = [[UIView alloc] init];
+    headerTitleView.backgroundColor = CPFGlobalBg;
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    titleLabel.x = CPFTopicCellMargin;
+    titleLabel.width = 200;
+    titleLabel.textColor = CPFRGBColor(67, 67, 67);
+    
+    if (section == 0) {
+        titleLabel.text = self.hotComments.count ? @"热门评论" : @"最新评论";
+    } else {
+        titleLabel.text = @"最新评论";
+    }
+    [headerTitleView addSubview:titleLabel];
+    
+    
+    return headerTitleView;
+}
+
 #pragma mark - 其他
 
 - (NSArray *)commentsInSection:(NSInteger)section {
@@ -145,6 +175,13 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // 恢复top_cmt 重新计算cellHeight
+    if (self.saved_top_cmt.count) {
+        self.topic.top_cmt = self.saved_top_cmt;
+        [self.topic setValue:@0 forKeyPath:@"cellHeight"];
+    }
+    
 }
 
 @end
