@@ -57,7 +57,6 @@
 		D1E3BA0D1D0F4769009FE89C /* CPFRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E3BA0B1D0F4769009FE89C /* CPFRecommendController.m */; };
 		D1E3BA0E1D0F4769009FE89C /* CPFRecommendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E3BA0C1D0F4769009FE89C /* CPFRecommendController.xib */; };
 		D1EFC3801D0F397A00F914FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC37F1D0F397A00F914FF /* main.m */; };
-		D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC3821D0F397A00F914FF /* AppDelegate.m */; };
 		D1EFC38B1D0F397A00F914FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EFC38A1D0F397A00F914FF /* Assets.xcassets */; };
 		D1EFC38E1D0F397A00F914FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EFC38C1D0F397A00F914FF /* LaunchScreen.storyboard */; };
 		D1EFC3981D0F3AD900F914FF /* CPFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EFC3971D0F3AD900F914FF /* CPFTabBarController.m */; };
@@ -180,7 +179,6 @@
 		D1EFC37B1D0F397A00F914FF /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EFC37F1D0F397A00F914FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1EFC3811D0F397A00F914FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D1EFC3821D0F397A00F914FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D1EFC38A1D0F397A00F914FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1EFC38D1D0F397A00F914FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1EFC38F1D0F397A00F914FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -452,7 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				D1EFC3811D0F397A00F914FF /* AppDelegate.h */,
-				D1EFC3821D0F397A00F914FF /* AppDelegate.m */,
 				D1E3B9F41D0F3DBF009FE89C /* Essence */,
 				D1E3B9F71D0F3DFD009FE89C /* New */,
 				D1E3B9F51D0F3DFD009FE89C /* FriendTrends */,
@@ -666,7 +663,6 @@
 				D1E3BA041D0F417A009FE89C /* CPFNewController.m in Sources */,
 				D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */,
 				D1DA8E491D37DE580096D89F /* CPFComment.m in Sources */,
-				D1EFC3831D0F397A00F914FF /* AppDelegate.m in Sources */,
 				D1DA8E461D37DD050096D89F /* CPFUser.m in Sources */,
 				D1F214AA1D34572E0002F047 /* CPFTopicViewController.m in Sources */,
 				D17558541D185A4700D83CAC /* CPFLoginRegisterController.m in Sources */,
@@ -845,6 +841,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/cuipengfei/Desktop/CPFBaiSiDemo/百思不得姐/百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -858,6 +855,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "/Users/cuipengfei/Desktop/CPFBaiSiDemo/百思不得姐/百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cuipengfei.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
