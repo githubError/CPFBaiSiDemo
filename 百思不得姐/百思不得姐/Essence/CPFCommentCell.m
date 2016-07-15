@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *creatTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
 
 
 @end
@@ -31,6 +32,13 @@
     self.creatTimeLabel.text = [self create_time:comment];
     self.likeCountLabel.text = comment.like_count;
     self.contentLabel.text = comment.content;
+    
+    if (comment.voiceuri.length) {
+        self.voiceButton.hidden = NO;
+        [self.voiceButton setTitle:[NSString stringWithFormat:@"%zd''",comment.voicetime] forState:UIControlStateNormal];
+    } else {
+        self.voiceButton.hidden = YES;
+    }
 }
 
 - (NSString *)create_time:(CPFComment *)comment {
@@ -62,6 +70,11 @@
     } else { // 非今年
         return comment.ctime;
     }
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.height -= 1;
+    [super setFrame:frame];
 }
 
 @end

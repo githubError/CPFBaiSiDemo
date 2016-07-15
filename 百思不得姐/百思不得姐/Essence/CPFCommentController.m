@@ -16,14 +16,25 @@ static NSString *commentCellID = @"commentCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *hotComments;   // 热门评论
+@property (nonatomic, strong) NSMutableArray *hotComments;   // 热门评论
 @property (nonatomic, strong) NSMutableArray *latestComments;   // 最新评论
 
 @property (nonatomic, strong) NSArray *saved_top_cmt;   // 存放热门评论
 
+@property (nonatomic, assign) NSInteger currentPage;   // 当前页码
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation CPFCommentController
+
+- (AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,9 +50,57 @@ static NSString *commentCellID = @"commentCell";
 - (void)setupRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    self.tableView.mj_footer.hidden = YES;
+}
+
+- (void)loadMoreComments {
+    
+    // 结束之前发送请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSInteger page = self.currentPage + 1;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"hot"] = @"1";
+    params[@"page"] = @(page);
+    CPFComment *cmt = [self.latestComments lastObject];
+    params[@"lastcid"] = cmt.ID;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *hotComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        NSArray *latestComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        [self.hotComments addObjectsFromArray:hotComments];
+        [self.latestComments addObjectsFromArray:latestComments];
+        
+        // 设置页码
+        self.currentPage = page;
+        
+        // 设置fotter状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        } else {
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 - (void)loadNewComments {
+    
+    // 结束之前发送请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
@@ -49,12 +108,19 @@ static NSString *commentCellID = @"commentCell";
     params[@"data_id"] = self.topic.ID;
     params[@"hot"] = @"1";
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        [responseObject writeToFile:@"/Users/cuipengfei/Desktop/comments.plist" atomically:YES];
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         self.hotComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.latestComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        // 设置页码
+        self.currentPage = 1;
+        
+        // 设置fotter状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
@@ -91,6 +157,7 @@ static NSString *commentCellID = @"commentCell";
     
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CPFCommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellID];
@@ -116,6 +183,9 @@ static NSString *commentCellID = @"commentCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    self.tableView.mj_footer.hidden = (self.latestComments.count == 0);
+    
     if (section == 0)
         return self.hotComments.count ? self.hotComments.count : self.latestComments.count;
     
@@ -187,6 +257,8 @@ static NSString *commentCellID = @"commentCell";
         [self.topic setValue:@0 forKeyPath:@"cellHeight"];
     }
     
+    // 销毁所有请求
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 
 @end
