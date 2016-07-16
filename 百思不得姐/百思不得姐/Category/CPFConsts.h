@@ -30,3 +30,6 @@ UIKIT_EXTERN CGFloat const CPFTopicCellPictureOverMaxH;
 UIKIT_EXTERN NSString  *CPFUserSexMale;
 UIKIT_EXTERN NSString  *CPFUserSexFemale;
 
+// tabBarItem选中通知
+UIKIT_EXTERN NSString  *CPFTabBatItemDidSelectedNotification;
+

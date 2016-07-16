@@ -34,4 +34,7 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 - (void) scaleBy: (CGFloat) scaleFactor;
 - (void) fitInSize: (CGSize) aSize;
 
+
+@property (nonatomic, assign) BOOL isShowingOnWindow;   // 当前视图是否显示到了主窗口上
+
 @end

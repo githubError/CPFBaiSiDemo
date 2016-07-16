@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CPFNewController : UIViewController
+@interface CPFNewController : CPFEssenceController
 
 @end

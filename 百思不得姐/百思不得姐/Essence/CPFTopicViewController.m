@@ -18,6 +18,8 @@
 
 @property (nonatomic, copy) NSString *maxtime;  // 加载下一页参数
 
+@property (nonatomic, assign) NSInteger lastSelectedIndex;   // 上次点击的索引
+
 @end
 
 @implementation CPFTopicViewController
@@ -60,6 +62,26 @@ static NSString *cellId = @"topicCell";
     CGFloat bottom = self.tabBarController.tabBar.height;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.backgroundColor = [UIColor clearColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarItemClick) name:CPFTabBatItemDidSelectedNotification object:nil];
+}
+
+- (void)tabBarItemClick {
+    
+    // 连续2次点击重新刷新
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex 
+        && self.view.isShowingOnWindow
+        ) {
+        
+        [self.tableView.mj_header beginRefreshing];
+    }
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
+    
+}
+
+#pragma mark - 请求参数 - 'a'
+- (NSString *)a {
+    return [self.parentViewController isKindOfClass:[CPFNewController class]] ? @"newlist" : @"list";
 }
 
 #pragma mark - 刷新数据
@@ -69,7 +91,7 @@ static NSString *cellId = @"topicCell";
     
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.topicType);
     
@@ -99,7 +121,7 @@ static NSString *cellId = @"topicCell";
     
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.topicType);
     params[@"page"] = @(++self.currentPage);

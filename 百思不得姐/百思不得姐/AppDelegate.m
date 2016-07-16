@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 @end
 
@@ -22,7 +22,9 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     // 设置窗口的根控制器
-    self.window.rootViewController = [[CPFTabBarController alloc] init];
+    CPFTabBarController *tabBarController = [[CPFTabBarController alloc] init];
+    tabBarController.delegate = self;
+    self.window.rootViewController = tabBarController;
     
     // 显示窗口
     [self.window makeKeyAndVisible];
@@ -31,6 +33,10 @@
     [CPFPushGuideView show];
     
     return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    [[NSNotificationCenter defaultCenter] postNotificationName:CPFTabBatItemDidSelectedNotification object:nil userInfo:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

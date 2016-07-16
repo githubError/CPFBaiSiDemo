@@ -230,4 +230,20 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
 	
 	self.frame = newframe;	
 }
+
+- (BOOL)isShowingOnWindow {
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    
+    // 以主窗口为原点计算self的矩形框 (toView = nil 默认代表主窗口)
+    // 将convertRect坐标值，从fromView视图转移到keyWindow
+    CGRect newRect =  [keyWindow convertRect:self.frame fromView:self.superview];
+    CGRect winBounds = keyWindow.bounds;
+    
+    // 判断self 和 keyWindow是否有重叠
+    
+    BOOL isIntersects = CGRectIntersectsRect(newRect, winBounds);
+    
+    return !self.hidden && self.alpha > 0.01 && isIntersects;
+}
+
 @end

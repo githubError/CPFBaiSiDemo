@@ -73,6 +73,10 @@ static NSString *commentCellID = @"commentCell";
     
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return;
+        }
         NSArray *hotComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         NSArray *latestComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
@@ -109,6 +113,11 @@ static NSString *commentCellID = @"commentCell";
     params[@"hot"] = @"1";
     
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.mj_header endRefreshing];
+            return;
+        }
         
         self.hotComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.latestComments = [CPFComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
