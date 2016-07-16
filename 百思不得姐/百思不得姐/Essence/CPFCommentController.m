@@ -213,6 +213,8 @@ static NSString *commentCellID = @"commentCell";
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -233,6 +235,47 @@ static NSString *commentCellID = @"commentCell";
     
     
     return headerTitleView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    
+    // 再次点击隐藏menu
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+        return;
+    }
+    
+    CPFCommentCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    // 将cell设为第一响应者
+    [cell becomeFirstResponder];
+    // 添加menuitem
+    UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+    UIMenuItem *revert = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(revert:)];
+    UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+    menu.menuItems = @[ding, revert, report];
+    
+    CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+    [menu setTargetRect:rect inView:cell];
+    [menu setMenuVisible:YES animated:YES];
+}
+
+#pragma mark - UIMenuController的处理
+
+// 顶
+- (void)ding:(UIMenuController *)menu {
+    NSLog(@"%s",__func__);
+}
+
+// 回复
+- (void)revert:(UIMenuController *)menu {
+    NSLog(@"%s",__func__);
+}
+
+// 举报
+- (void)report:(UIMenuController *)menu {
+    NSLog(@"%s",__func__);
 }
 
 #pragma mark - 其他

@@ -72,9 +72,19 @@
     }
 }
 
+
 - (void)setFrame:(CGRect)frame {
     frame.size.height -= 1;
     [super setFrame:frame];
+}
+
+#pragma mark - UIMenuController的处理
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return NO;
 }
 
 @end
