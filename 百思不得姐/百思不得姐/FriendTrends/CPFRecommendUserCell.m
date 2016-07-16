@@ -41,8 +41,10 @@
         fansCount = [NSString stringWithFormat:@"%.1f万人关注", user.fans_count / 10000.0];
     }
     
-    self.fansCountLabel.text = fansCount;
-    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:_user.header] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:user.header] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.headerImageView.image = image ? [image circleImage] : placeholder;
+    }];
 }
 
 @end

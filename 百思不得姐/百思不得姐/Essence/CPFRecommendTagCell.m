@@ -25,7 +25,14 @@
 
 - (void)setRecommendTag:(CPFRecommendTag *)recommendTag {
     _recommendTag = recommendTag;
+    
     [self.imageLiatImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    [self.imageLiatImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.imageLiatImageView.image = image ? [image circleImage] : placeholder;
+    }];
+    
     self.themeNameLabel.text = recommendTag.theme_name;
     NSString *subNumber = nil;
     if (recommendTag.sub_number < 10000) {

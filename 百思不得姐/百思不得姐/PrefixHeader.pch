@@ -41,6 +41,7 @@
 #import "CPFComment.h"
 #import "CPFUser.h"
 #import "CPFCommentController.h"
+#import "UIImage+CPFImageExt.h"
 
 #ifdef DEBUG
 #define CPFLog(...) NSLog(__VA_ARGS__)

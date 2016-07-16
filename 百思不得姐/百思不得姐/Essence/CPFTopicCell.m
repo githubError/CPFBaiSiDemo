@@ -76,7 +76,11 @@
 - (void)setTopic:(CPFTopic *)topic{
     _topic = topic;
     
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.profileImageView.image = image ? [image circleImage] : placeholder;
+    }];
+    
     self.nameLabel.text = topic.name;
     
     self.creatTimeLabel.text = topic.create_time;

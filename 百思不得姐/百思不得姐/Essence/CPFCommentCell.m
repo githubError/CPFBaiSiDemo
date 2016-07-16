@@ -26,7 +26,11 @@
 - (void)setComment:(CPFComment *)comment {
     _comment = comment;
     
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.profileImageView.image = image ? [image circleImage] : placeholder;
+    }];
+    
     self.sexImageView.image = [comment.user.sex isEqualToString:CPFUserSexMale] ? [UIImage imageNamed:@"Profile_manIcon"] : [UIImage imageNamed:@"Profile_womanIcon"];
     self.userNameLabel.text = comment.user.username;
     self.creatTimeLabel.text = [self create_time:comment];
