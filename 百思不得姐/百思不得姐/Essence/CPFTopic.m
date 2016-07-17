@@ -74,7 +74,7 @@
             CGFloat pictureX = CPFTopicCellMargin;
             _pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
             
-            _cellHeight += pictureH + CPFTopicCellMargin;
+            _cellHeight += pictureH + 2 * CPFTopicCellMargin;
         } else if (self.type == CPFTopicTypeVoice) {
             
             CGFloat voiceX = CPFTopicCellMargin;
