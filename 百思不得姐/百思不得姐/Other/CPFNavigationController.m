@@ -19,6 +19,8 @@
     // 当导航栏用在CPFNavigationController中, appearance设置才会生效
     UINavigationBar *bar = [UINavigationBar appearance];
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    
+    [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18]}];
 }
 
 - (void)viewDidLoad {

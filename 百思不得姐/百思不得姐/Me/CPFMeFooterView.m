@@ -11,6 +11,7 @@
 #import "CPFSquareButton.h"
 #import <UIButton+WebCache.h>
 #import <UIButton+WebCache.h>
+#import "CPFWebViewController.h"
 
 @implementation CPFMeFooterView
 
@@ -68,7 +69,16 @@
 }
 
 - (void)buttonClick:(CPFSquareButton *)button {
-    CPFLogFunc;
+    
+    if (![button.square.url hasPrefix:@"http"]) return;
+    
+    CPFWebViewController *webVC = [[CPFWebViewController alloc] init];
+    webVC.url = button.square.url;
+    webVC.title = button.square.name;
+    
+    UITabBarController *tabBarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *navigationVC = (UINavigationController *)tabBarVC.selectedViewController;
+    [navigationVC pushViewController:webVC animated:YES];
 }
 
 @end
