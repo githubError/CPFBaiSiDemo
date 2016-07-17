@@ -21,6 +21,20 @@
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
     [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18]}];
+    
+    // 设置导航栏UIBarButtonItem文字颜色
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    // 默认状态
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    // enable状态
+    NSMutableDictionary *disableAttrs = [NSMutableDictionary dictionary];
+    disableAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    disableAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    [item setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
 }
 
 - (void)viewDidLoad {

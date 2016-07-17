@@ -40,6 +40,7 @@
 		D1A7F5571D3B8F7E006AFA00 /* CPFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1A7F5551D3B8F7E006AFA00 /* CPFWebViewController.xib */; };
 		D1A7F55A1D3B9C4B006AFA00 /* CPFPostWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A7F5591D3B9C4B006AFA00 /* CPFPostWordController.m */; };
 		D1A7F55E1D3BA07E006AFA00 /* CPFPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1A7F55D1D3BA07E006AFA00 /* CPFPublishViewController.xib */; };
+		D1A7F5611D3BF546006AFA00 /* CPFPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A7F5601D3BF546006AFA00 /* CPFPlaceholderTextView.m */; };
 		D1B4C8D71D36543A008FAC07 /* CPFPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B4C8D51D36543A008FAC07 /* CPFPublishViewController.m */; };
 		D1CF44131D12DE9C002620D4 /* CPFRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF44111D12DE9C002620D4 /* CPFRecommendCategoryCell.m */; };
 		D1CF44141D12DE9C002620D4 /* CPFRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CF44121D12DE9C002620D4 /* CPFRecommendCategoryCell.xib */; };
@@ -157,6 +158,8 @@
 		D1A7F5581D3B9C4B006AFA00 /* CPFPostWordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPostWordController.h; sourceTree = "<group>"; };
 		D1A7F5591D3B9C4B006AFA00 /* CPFPostWordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPostWordController.m; sourceTree = "<group>"; };
 		D1A7F55D1D3BA07E006AFA00 /* CPFPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFPublishViewController.xib; sourceTree = "<group>"; };
+		D1A7F55F1D3BF546006AFA00 /* CPFPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPlaceholderTextView.h; sourceTree = "<group>"; };
+		D1A7F5601D3BF546006AFA00 /* CPFPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPlaceholderTextView.m; sourceTree = "<group>"; };
 		D1B4C8D41D36543A008FAC07 /* CPFPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFPublishViewController.h; sourceTree = "<group>"; };
 		D1B4C8D51D36543A008FAC07 /* CPFPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFPublishViewController.m; sourceTree = "<group>"; };
 		D1CF44101D12DE9C002620D4 /* CPFRecommendCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendCategoryCell.h; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				D1DC9AD71D1D4507009AC697 /* CPFPushGuideView.h */,
 				D1DC9AD81D1D4507009AC697 /* CPFPushGuideView.m */,
 				D1DC9ADA1D1D4518009AC697 /* CPFPushGuideView.xib */,
+				D1A7F55F1D3BF546006AFA00 /* CPFPlaceholderTextView.h */,
+				D1A7F5601D3BF546006AFA00 /* CPFPlaceholderTextView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 				D1E3BA081D0F41F1009FE89C /* CPFFriendTrendsController.m in Sources */,
 				D1A7F55A1D3B9C4B006AFA00 /* CPFPostWordController.m in Sources */,
 				D1DA8E3C1D378EE70096D89F /* CPFTopicVoiceView.m in Sources */,
+				D1A7F5611D3BF546006AFA00 /* CPFPlaceholderTextView.m in Sources */,
 				D1E3B9F31D0F3D55009FE89C /* UIViewExt.m in Sources */,
 				D1CF44171D12E3C6002620D4 /* CPFRecommendCategory.m in Sources */,
 				D17558481D18008600D83CAC /* CPFRecommendTagsController.m in Sources */,
