@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) NSString *placeholder;  // 占位文字
 
+@property (nonatomic, strong) UIColor *placeholderColor;   // 占位文字颜色
+
 @end
