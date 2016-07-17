@@ -6,13 +6,19 @@
 //  Copyright © 2016年 崔鹏飞. All rights reserved.
 //
 
+/*
+    textView继承自scrollView
+    如果需要占位文字能上下随光标控件拖动需要设置
+    textView.alwaysBounceVertical = YES;
+    并且用label作为placeholder
+ */
+
 #import "CPFPlaceholderTextView.h"
 
 @implementation CPFPlaceholderTextView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        
         // 设置textView字体
         self.font = [UIFont systemFontOfSize:18];
         self.placeholderColor = [UIColor lightGrayColor];
@@ -38,7 +44,7 @@
     
     CGFloat textX = 5;
     CGFloat textY = 8;
-    CGFloat textW = self.width;
+    CGFloat textW = self.width - 2 * textX;
     CGFloat textH = self.height;
     [self.placeholder drawInRect:CGRectMake(textX, textY, textW, textH) withAttributes:attrs];
 }
