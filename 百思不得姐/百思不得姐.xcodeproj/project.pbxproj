@@ -48,6 +48,7 @@
 		D1D2B59B1D3CD75B00C47F70 /* CPFAddTagsToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2B59A1D3CD75B00C47F70 /* CPFAddTagsToolBar.m */; };
 		D1D2B59D1D3CD76B00C47F70 /* CPFAddTagsToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D2B59C1D3CD76B00C47F70 /* CPFAddTagsToolBar.xib */; };
 		D1D2B5A01D3CEA0E00C47F70 /* CPFEditTagsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2B59F1D3CEA0E00C47F70 /* CPFEditTagsController.m */; };
+		D1D2B5A31D3D3A0100C47F70 /* CPFTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2B5A21D3D3A0100C47F70 /* CPFTagButton.m */; };
 		D1DA8E3C1D378EE70096D89F /* CPFTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E3B1D378EE70096D89F /* CPFTopicVoiceView.m */; };
 		D1DA8E3E1D378EF50096D89F /* CPFTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */; };
 		D1DA8E411D37A1F20096D89F /* CPFTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DA8E401D37A1F20096D89F /* CPFTopicVideoView.m */; };
@@ -175,6 +176,8 @@
 		D1D2B59C1D3CD76B00C47F70 /* CPFAddTagsToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFAddTagsToolBar.xib; sourceTree = "<group>"; };
 		D1D2B59E1D3CEA0E00C47F70 /* CPFEditTagsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFEditTagsController.h; sourceTree = "<group>"; };
 		D1D2B59F1D3CEA0E00C47F70 /* CPFEditTagsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFEditTagsController.m; sourceTree = "<group>"; };
+		D1D2B5A11D3D3A0100C47F70 /* CPFTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTagButton.h; sourceTree = "<group>"; };
+		D1D2B5A21D3D3A0100C47F70 /* CPFTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTagButton.m; sourceTree = "<group>"; };
 		D1DA8E3A1D378EE70096D89F /* CPFTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopicVoiceView.h; sourceTree = "<group>"; };
 		D1DA8E3B1D378EE70096D89F /* CPFTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopicVoiceView.m; sourceTree = "<group>"; };
 		D1DA8E3D1D378EF50096D89F /* CPFTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFTopicVoiceView.xib; sourceTree = "<group>"; };
@@ -448,6 +451,8 @@
 				D1D2B5991D3CD75B00C47F70 /* CPFAddTagsToolBar.h */,
 				D1D2B59A1D3CD75B00C47F70 /* CPFAddTagsToolBar.m */,
 				D1D2B59C1D3CD76B00C47F70 /* CPFAddTagsToolBar.xib */,
+				D1D2B5A11D3D3A0100C47F70 /* CPFTagButton.h */,
+				D1D2B5A21D3D3A0100C47F70 /* CPFTagButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -770,6 +775,7 @@
 				D116AC931D3524A50036BB74 /* CPFTopicPictureView.m in Sources */,
 				D1E3B9FA1D0F3E32009FE89C /* CPFEssenceController.m in Sources */,
 				D11F7E7F1D1933F50020FA9A /* CPFColorfulPlaceholder.m in Sources */,
+				D1D2B5A31D3D3A0100C47F70 /* CPFTagButton.m in Sources */,
 				D1F214A01D33EBCF0002F047 /* CPFTopicCell.m in Sources */,
 				D13D94D31D3AE321002FF9A5 /* CPFSquare.m in Sources */,
 				D13D94C51D3A7FDF002FF9A5 /* UIImage+CPFImageExt.m in Sources */,
