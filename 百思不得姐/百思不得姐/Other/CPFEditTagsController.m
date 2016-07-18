@@ -8,13 +8,14 @@
 
 #import "CPFEditTagsController.h"
 #import "CPFTagButton.h"
+#import "CPFTagTextField.h"
 
 #define CPFTagMargin 5
 
 @interface CPFEditTagsController ()<UITextFieldDelegate>
 
 @property (nonatomic, weak) UIView *contentView;
-@property (nonatomic, weak) UITextField *textField;
+@property (nonatomic, weak) CPFTagTextField *textField;
 @property (nonatomic, weak) UIButton *addTagsButton;
 @property (nonatomic, strong) NSMutableArray *tagButtons;   // 标签集合
 
@@ -142,12 +143,18 @@
     self.contentView = contentView;
 }
 - (void)setupTextField {
-    UITextField *textField = [[UITextField alloc] init];
     
+    __weak typeof(self) weakSelf = self;
+    CPFTagTextField *textField = [[CPFTagTextField alloc] init];
     textField.placeholder = @"请输入标签文字";
     // 使用KVC设置placeholder的文字颜色
     [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
+    // 使用block回调的方式监听键盘删除按钮,删除标签
+    textField.deleteBlock = ^{
+        if (weakSelf.textField.hasText) return ;
+        [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
+    };
     textField.width = CPFScreenW;
     textField.height = 25;
     [textField becomeFirstResponder];
@@ -171,16 +178,18 @@
 - (void)textDidChange {
     if (self.textField.hasText) {
         self.addTagsButton.hidden = NO;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         self.addTagsButton.y = CGRectGetMaxY(self.textField.frame);
         [self.addTagsButton setTitle:[NSString stringWithFormat:@"添加标签: %@",self.textField.text] forState:UIControlStateNormal];
     } else {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
         self.addTagsButton.hidden = YES;
     }
 }
 
 #pragma mark - <UITextFieldDelegate>
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(CPFTagTextField *)textField {
     [self textDidChange];
     if (textField.hasText)
         [self addTagsButtonClick];
