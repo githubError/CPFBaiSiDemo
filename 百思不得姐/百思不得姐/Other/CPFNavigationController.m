@@ -40,8 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 清空navigationController的interactivePopGestureRecognizer代理会让导航控制器重新设置左划返回功能
-    self.interactivePopGestureRecognizer.delegate = nil;
+    // interactivePopGestureRecognizer代理会让导航控制器重新设置右划返回功能
+    self.interactivePopGestureRecognizer.delegate = (id)self;
     
 }
 
@@ -66,7 +66,7 @@
         [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         
         // 修改导航栏左边的item
-        // 重写导航栏左边的navigationItem会导致左划返回手势失效
+        // 重写导航栏左边的navigationItem会导致右划返回手势失效
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         
         // 隐藏tabbar
