@@ -12,8 +12,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWu-nY-Ygz" userLabel="顶部">
-                    <rect key="frame" x="0.0" y="0.0" width="344" height="67"/>
-                    <color key="backgroundColor" red="0.89484584730000005" green="0.72955117449999995" blue="0.9596528943" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="5" y="0.0" width="334" height="67"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4v-kW-dLf" userLabel="底部">
                     <rect key="frame" x="0.0" y="67" width="344" height="35"/>
@@ -54,13 +54,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="gWu-nY-Ygz" secondAttribute="trailing" id="4WY-1F-Kep"/>
+                <constraint firstAttribute="trailing" secondItem="gWu-nY-Ygz" secondAttribute="trailing" constant="5" id="4WY-1F-Kep"/>
                 <constraint firstAttribute="bottom" secondItem="N4v-kW-dLf" secondAttribute="bottom" id="9H2-nC-R5w"/>
                 <constraint firstAttribute="trailing" secondItem="N4v-kW-dLf" secondAttribute="trailing" id="IfY-mx-Pvl"/>
                 <constraint firstItem="N4v-kW-dLf" firstAttribute="top" secondItem="gWu-nY-Ygz" secondAttribute="bottom" id="Nq0-a3-5LC"/>
                 <constraint firstItem="N4v-kW-dLf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bwn-1q-iM0"/>
                 <constraint firstItem="gWu-nY-Ygz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pf0-W7-Eq7"/>
-                <constraint firstItem="gWu-nY-Ygz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x1f-VY-qLH"/>
+                <constraint firstItem="gWu-nY-Ygz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="x1f-VY-qLH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

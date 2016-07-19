@@ -9,6 +9,7 @@
 #import "CPFEditTagsController.h"
 #import "CPFTagButton.h"
 #import "CPFTagTextField.h"
+#import <SVProgressHUD.h>
 
 #define CPFTagMargin 5
 
@@ -59,10 +60,29 @@
     [self setupContentView];
     
     [self setupTextField];
+    
+    [self setupTags];
+}
+
+// CPFAddTagsToolBar回传的标签
+- (void)setupTags {
+    
+    for (NSString *tagTitle in self.tags) {
+        self.textField.text = tagTitle;
+        [self addTagsButtonClick];
+    }
 }
 
 
 - (void)addTagsButtonClick {
+    
+    // 限制标签数量
+    if (self.tagButtons.count == 5) {
+        [SVProgressHUD showErrorWithStatus:@"做多添加5个标签"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    
     CPFTagButton *tagButton = [CPFTagButton buttonWithType:UIButtonTypeCustom];
     tagButton.height = self.textField.height;
     [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
@@ -124,6 +144,8 @@
         self.textField.x = 0;
         self.textField.y = CGRectGetMaxY(lastTagButton.frame) + CPFTagMargin;
     }
+    
+    self.addTagsButton.y = CGRectGetMaxY(self.textField.frame) + CPFTagMargin;
 }
 
 // 计算textField文字宽度
@@ -173,16 +195,27 @@
 
 - (void)done {
     
+    // 将数组传递给上一个CPFAddTagsToolBar
+    NSMutableArray *tagTitles = [NSMutableArray array];
+    for (CPFTagButton *tagButton in self.tagButtons) {
+        // 获取所有标签按钮的文字
+        [tagTitles addObject:tagButton.currentTitle];
+    }
+    /*
+     也可以使用KVC获得
+     NSArray *tagTitles = [self.tagButtons valueForKeyPath:@"currentTitle"];
+     */
+    !self.allTagsBlock ? : self.allTagsBlock(tagTitles);
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)textDidChange {
     if (self.textField.hasText) {
         self.addTagsButton.hidden = NO;
-        self.navigationItem.rightBarButtonItem.enabled = YES;
         self.addTagsButton.y = CGRectGetMaxY(self.textField.frame);
         [self.addTagsButton setTitle:[NSString stringWithFormat:@"添加标签: %@",self.textField.text] forState:UIControlStateNormal];
     } else {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
         self.addTagsButton.hidden = YES;
     }
 }

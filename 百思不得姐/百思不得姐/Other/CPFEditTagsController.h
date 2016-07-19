@@ -10,4 +10,8 @@
 
 @interface CPFEditTagsController : UIViewController
 
+@property (nonatomic, copy) void (^allTagsBlock)(NSArray *);  // 所有标签
+
+@property (nonatomic, strong) NSArray *tags;   // 接收传过来的标签
+
 @end
