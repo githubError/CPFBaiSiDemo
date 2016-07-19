@@ -27,6 +27,7 @@
 		D14AC9CA1D131ED400BEB0F9 /* CPFRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D14AC9C91D131ED400BEB0F9 /* CPFRecommendUser.m */; };
 		D14CD6AF1D38F36500B651C5 /* CPFCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14CD6AD1D38F36500B651C5 /* CPFCommentCell.m */; };
 		D14CD6B01D38F36500B651C5 /* CPFCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14CD6AE1D38F36500B651C5 /* CPFCommentCell.xib */; };
+		D1516A651D3E68580069F9A0 /* CPFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1516A641D3E68580069F9A0 /* CPFSettingsViewController.m */; };
 		D169D4AF1D33A6710095FDCA /* CPFTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = D169D4AE1D33A6710095FDCA /* CPFTopic.m */; };
 		D17558481D18008600D83CAC /* CPFRecommendTagsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17558471D18008600D83CAC /* CPFRecommendTagsController.m */; };
 		D175584B1D18030A00D83CAC /* CPFRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D175584A1D18030A00D83CAC /* CPFRecommendTag.m */; };
@@ -142,6 +143,8 @@
 		D14CD6AC1D38F36500B651C5 /* CPFCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFCommentCell.h; sourceTree = "<group>"; };
 		D14CD6AD1D38F36500B651C5 /* CPFCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFCommentCell.m; sourceTree = "<group>"; };
 		D14CD6AE1D38F36500B651C5 /* CPFCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFCommentCell.xib; sourceTree = "<group>"; };
+		D1516A631D3E68580069F9A0 /* CPFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFSettingsViewController.h; sourceTree = "<group>"; };
+		D1516A641D3E68580069F9A0 /* CPFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFSettingsViewController.m; sourceTree = "<group>"; };
 		D169D4AD1D33A6710095FDCA /* CPFTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFTopic.h; sourceTree = "<group>"; };
 		D169D4AE1D33A6710095FDCA /* CPFTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFTopic.m; sourceTree = "<group>"; };
 		D17558461D18008600D83CAC /* CPFRecommendTagsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFRecommendTagsController.h; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 				D1A7F5531D3B8F7E006AFA00 /* CPFWebViewController.h */,
 				D1A7F5541D3B8F7E006AFA00 /* CPFWebViewController.m */,
 				D1A7F5551D3B8F7E006AFA00 /* CPFWebViewController.xib */,
+				D1516A631D3E68580069F9A0 /* CPFSettingsViewController.h */,
+				D1516A641D3E68580069F9A0 /* CPFSettingsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 				D13D94D31D3AE321002FF9A5 /* CPFSquare.m in Sources */,
 				D13D94C51D3A7FDF002FF9A5 /* UIImage+CPFImageExt.m in Sources */,
 				D18A87151D3999B70001377D /* AppDelegate.m in Sources */,
+				D1516A651D3E68580069F9A0 /* CPFSettingsViewController.m in Sources */,
 				D1D2B5A91D3D984C00C47F70 /* CPFTagTextField.m in Sources */,
 				D13D94C91D3AD538002FF9A5 /* CPFMeCell.m in Sources */,
 				D1D2B59B1D3CD75B00C47F70 /* CPFAddTagsToolBar.m in Sources */,

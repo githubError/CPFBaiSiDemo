@@ -9,6 +9,7 @@
 #import "CPFMeController.h"
 #import "CPFMeCell.h"
 #import "CPFMeFooterView.h"
+#import "CPFSettingsViewController.h"
 
 static NSString *CPFMeCellId = @"meCellID";
 
@@ -90,7 +91,7 @@ static NSString *CPFMeCellId = @"meCellID";
 
 - (void)settingClick
 {
-    CPFLogFunc;
+    [self.navigationController pushViewController:[[CPFSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
 }
 
 - (void)moonClick
