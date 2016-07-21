@@ -50,6 +50,7 @@
  */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    
     if (self.childViewControllers.count > 0) { // 如果push进来的不是第一个控制器
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"返回" forState:UIControlStateNormal];
@@ -73,9 +74,9 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     
-    // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem
+    // 这句super的push要放在后面, 让以后push进来的viewController可以覆盖上面设置的leftBarButtonItem
+    // 如果放到前面，就会使上面设置的leftBarButtonItem覆盖掉push进来的控制器自定义的leftBarButtonItem
     [super pushViewController:viewController animated:animated];
-    
 }
 
 - (void)back

@@ -57,12 +57,12 @@
                     <constraint firstItem="o8X-29-C2c" firstAttribute="top" secondItem="eEK-mO-F1a" secondAttribute="top" id="5l2-Xr-Kq2"/>
                     <constraint firstItem="eEK-mO-F1a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7dH-jm-b13"/>
                     <constraint firstItem="PVM-7k-MTS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="AdW-a0-eCC"/>
-                    <constraint firstItem="WNh-Tf-VZr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OXf-OW-yaA"/>
+                    <constraint firstItem="WNh-Tf-VZr" firstAttribute="centerY" secondItem="eEK-mO-F1a" secondAttribute="centerY" id="IT0-xa-FxB"/>
+                    <constraint firstItem="WNh-Tf-VZr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ori-6g-ahH"/>
                     <constraint firstItem="eEK-mO-F1a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Z1i-Wc-rZD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="PVM-7k-MTS" secondAttribute="bottom" constant="-8" id="Z1y-nf-1qP"/>
                     <constraint firstItem="Mf5-uz-KXb" firstAttribute="bottom" secondItem="eEK-mO-F1a" secondAttribute="bottom" id="clg-7W-yXr"/>
                     <constraint firstItem="Mf5-uz-KXb" firstAttribute="leading" secondItem="eEK-mO-F1a" secondAttribute="trailing" constant="5" id="hvy-5A-iPc"/>
-                    <constraint firstItem="WNh-Tf-VZr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="om7-Ty-wFN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVM-7k-MTS" secondAttribute="trailing" constant="-8" id="y2f-Re-aWD"/>
                 </constraints>
             </tableViewCellContentView>

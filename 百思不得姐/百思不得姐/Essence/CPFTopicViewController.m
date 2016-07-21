@@ -63,15 +63,13 @@ static NSString *cellId = @"topicCell";
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarItemClick) name:CPFTabBatItemDidSelectedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarItemClick) name:CPFTabBarItemDidSelectedNotification object:nil];
 }
 
 - (void)tabBarItemClick {
     
     // 连续2次点击重新刷新
-    if (self.lastSelectedIndex == self.tabBarController.selectedIndex 
-        && self.view.isShowingOnWindow
-        ) {
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingOnWindow) {
         
         [self.tableView.mj_header beginRefreshing];
     }

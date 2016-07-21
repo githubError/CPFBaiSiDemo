@@ -114,7 +114,7 @@
         }
     }
     
-    // 计算textField的位置
+    // 计算addTagsButton的位置
     UILabel *lastTagLabel = [self.tagLabels lastObject];
     // 左边占用的宽度
     CGFloat leftW = CGRectGetMaxX(lastTagLabel.frame) + CPFTagMargin;

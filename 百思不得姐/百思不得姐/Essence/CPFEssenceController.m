@@ -62,7 +62,7 @@
 - (void)setupTitlesView {
     // 标签栏背景
     UIView *titlesView = [[UIView alloc] init];
-    titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+    titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7];
     titlesView.width = self.view.width;
     titlesView.height = CPFTitleViewH;
     titlesView.y = CPFTitleViewY;

@@ -85,4 +85,8 @@
     }
 }
 
+- (void)dealloc {
+    [SVProgressHUD dismiss];
+}
+
 @end

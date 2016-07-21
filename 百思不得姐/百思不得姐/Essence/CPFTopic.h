@@ -47,6 +47,7 @@
 
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;   // cell的高度
+
 @property (nonatomic, assign, readonly) CGRect pictureFrame;   // 图片控件位置
 @property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;   // 大图片标识
 @property (nonatomic, assign) CGFloat picDownloadProgress;   // 图片下载进度

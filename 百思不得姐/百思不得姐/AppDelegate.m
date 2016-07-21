@@ -36,7 +36,17 @@
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    [[NSNotificationCenter defaultCenter] postNotificationName:CPFTabBatItemDidSelectedNotification object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CPFTabBarItemDidSelectedNotification object:nil userInfo:nil];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"sourceApplication---%@",sourceApplication);
+    
+    NSLog(@"-----%@",url);
+    NSLog(@"+++++%@",[url scheme]);
+    NSLog(@"-----%@",[url query]);
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

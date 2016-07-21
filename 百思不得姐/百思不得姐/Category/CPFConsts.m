@@ -22,5 +22,5 @@ NSString  *CPFUserSexFemale = @"f";
 
 
 // tabBarItem选中通知
-NSString *CPFTabBatItemDidSelectedNotification = @"CPFTabBatItemDidSelectedNotification";
+NSString *CPFTabBarItemDidSelectedNotification = @"CPFTabBarItemDidSelectedNotification";
 

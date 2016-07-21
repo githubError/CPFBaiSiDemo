@@ -31,5 +31,5 @@ UIKIT_EXTERN NSString  *CPFUserSexMale;
 UIKIT_EXTERN NSString  *CPFUserSexFemale;
 
 // tabBarItem选中通知
-UIKIT_EXTERN NSString  *CPFTabBatItemDidSelectedNotification;
+UIKIT_EXTERN NSString  *CPFTabBarItemDidSelectedNotification;
 
